@@ -74,13 +74,7 @@ class SX_ADScrollerView: UIView,UICollectionViewDelegate,UICollectionViewDataSou
         
         let itemIndex = indexPath.item % self.imageURLArray.count
         
-        
-        
-        
-        
-        
-        
-        
+        //cell.imageView
         
         
     }

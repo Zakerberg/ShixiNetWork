@@ -13,6 +13,7 @@ pod 'SnapKit'
 pod 'AFNetworking'
 pod 'RxCocoa'
 pod 'RxSwift'
+pod 'Kingfisher'
 
 
   target 'SX_NetWorkTests' do
