@@ -10,5 +10,19 @@ import UIKit
 
 class SX_ADCollectionViewCell: UICollectionViewCell {
     
- 
+    var imageView = UIImageView()
+    var titleLabel = UILabel()
+    
+    var adScrollModel : SX_ADScrollModel? {
+        didSet{
+         titleLabel.text = adScrollModel?.title
+            
+            
+            
+        }
+    }
+    
+    
+    
+    
 }

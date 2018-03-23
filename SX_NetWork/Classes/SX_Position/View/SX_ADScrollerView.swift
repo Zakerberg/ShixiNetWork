@@ -72,9 +72,11 @@ extension SX_ADScrollerView {
         self.addSubview(pageControl)
         // 给pageControl 添加约束
         let rightContraint : NSLayoutConstraint = NSLayoutConstraint(item: pageControl, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -10)
-        
-        
-        
+        let bottomContrain : NSLayoutConstraint = NSLayoutConstraint(item: pageControl, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -5)
+        let heightContrain : NSLayoutConstraint = NSLayoutConstraint(item: pageControl, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20)
+        pageControl.superview?.addConstraint(rightContraint)
+        pageControl.superview?.addConstraint(bottomContrain)
+        pageControl.superview?.addConstraint(heightContrain)
     }
 }
 
@@ -90,10 +92,14 @@ extension SX_ADScrollerView : UICollectionViewDelegate {
 //MARK: - CollectionViewDataSource
 extension SX_ADScrollerView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        return 10000*(adScrollModelArr?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     
+        let collectionItem = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! SX_ADCollectionViewCell
+        let index = indexPath.item % adScrollModelArr!.count
+        
         
     }
 }
