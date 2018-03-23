@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bugly (2.4.8)
+  - Kingfisher (4.6.4)
   - ReactiveSwift (2.0.1):
     - Result (~> 3.2)
   - Result (3.2.4)
@@ -29,6 +30,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Bugly
+  - Kingfisher
   - ReactiveSwift
   - RxCocoa
   - RxSwift
@@ -38,6 +40,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bugly: da3c02408c14838d498429320545a8e439392978
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
@@ -45,6 +48,6 @@ SPEC CHECKSUMS:
   SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 27164e1a97744462f506072f741fe07d9e653cde
+PODFILE CHECKSUM: 2c5c2814d29b680c0384c60e1d286e714606b789
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0
