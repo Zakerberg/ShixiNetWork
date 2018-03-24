@@ -15,7 +15,6 @@ pod 'RxCocoa'
 pod 'RxSwift'
 pod 'Kingfisher'
 
-
   target 'SX_NetWorkTests' do
     inherit! :search_paths
     # Pods for testing

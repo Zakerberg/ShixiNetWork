@@ -62,7 +62,6 @@ class SX_ADScrollerView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 //MARK: - Set UI
@@ -82,12 +81,11 @@ extension SX_ADScrollerView {
 
 //MARK: - CollectionViewDelegate
 extension SX_ADScrollerView : UICollectionViewDelegate {
-    
-    
-    
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.x + SCREEN_WEIGHT / 2
+        pageControl.currentPage = Int(offset / SCREEN_WEIGHT) % (adScrollModelArr?.count ?? 1)
+    }
 }
-
 
 //MARK: - CollectionViewDataSource
 extension SX_ADScrollerView : UICollectionViewDataSource {
@@ -96,27 +94,32 @@ extension SX_ADScrollerView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     
+        
         let collectionItem = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! SX_ADCollectionViewCell
         let index = indexPath.item % adScrollModelArr!.count
-        
-        
+        collectionItem.adScrollModel = adScrollModelArr![index]
+        return collectionItem
     }
 }
-
 
 //MARK: - Timer
 extension SX_ADScrollerView {
-    
     func addTimer()  {
-        
+        timer = Timer(timeInterval: 3.0, target: self, selector: #selector(scrollToNextPage), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .commonModes)
     }
     
     func removeTimer() {
-        
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func scrollToNextPage() {
+        // 当前偏移量加上一页的宽度
+        let offSetX = adCollectionView.contentOffset.x + SCREEN_WEIGHT
+        adCollectionView.setContentOffset(CGPoint(x: offSetX, y: 0), animated: true)
     }
 }
-
 
 
 
