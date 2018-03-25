@@ -38,9 +38,7 @@ extension SX_PositionViewVC {
 //MARK: - UITableViewDelagate
 extension SX_PositionViewVC : UITableViewDelegate {
     
-    
-    
-    
+
     
 }
 
