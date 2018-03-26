@@ -10,7 +10,7 @@ import UIKit
 
 let CacheFilePath = NSHomeDirectory() + "/Documents/CacheFile/SX"
 
-enum SXFileCacheTime : Int {
+enum SXFileCacheTime : NSInteger {
     case Minute  = 60
     case Hour    = 3600
     case Day     = 86400
@@ -21,9 +21,12 @@ enum SXFileCacheTime : Int {
 
 class SX_FileManger: NSObject {
     
-    /**
-     * 写入文件
-     **/
+}
+
+/**
+ * 写入文件
+ **/
+extension SX_FileManger {
     class func witeToFile (fileName: NSString,content: NSString) -> Bool {
         let error1 = Bool()
         let filePath = CacheFilePath + "/" + (fileName as String)
@@ -45,12 +48,14 @@ class SX_FileManger: NSObject {
             return false
         }
     }
-    
-    /**
-     *  文件的读取
-     *
-     *  return 返回字符串
-     */
+}
+
+/**
+ *  文件的读取
+ *
+ *  return 返回字符串
+ */
+extension SX_FileManger {
     class func readFile (fileName: NSString) -> NSString {
         let error = Bool()
         let filePath = CacheFilePath + "/" + (fileName as String)
@@ -74,9 +79,34 @@ class SX_FileManger: NSObject {
  *  是否有缓存
  */
 extension SX_FileManger {
-    class func isHasCacheFile (fileName: NSString,cacheData:SXFileCacheTime) -> Bool {
+    class func isHasCacheFile (fileName: NSString,cacheData:Double) -> Bool {
+        let filePath = CacheFilePath + "/" + (fileName as String)
+        let fileManager = FileManager.default
         
-        return false
+        if !(fileManager.fileExists(atPath: filePath)) {
+            return false
+        }
+        
+        let error : NSError? = nil
+        
+        do{
+            var fileAttributes = try fileManager.attributesOfItem(atPath: filePath) as NSDictionary
+            
+            if fileAttributes != nil {
+                let fileCreatDate = fileAttributes.object(forKey: FileAttributeKey.creationDate) as! NSDate
+                let timeInterval = -(fileCreatDate.timeIntervalSinceNow)
+                
+                if timeInterval > cacheData {
+                 return false
+                    
+                } else {
+                    return true
+                }
+            }
+            return true
+        }
+        catch  { }
+      return true
     }
 }
 
@@ -89,7 +119,6 @@ extension SX_FileManger {
         
         
         return false
-        
     }
 }
 
