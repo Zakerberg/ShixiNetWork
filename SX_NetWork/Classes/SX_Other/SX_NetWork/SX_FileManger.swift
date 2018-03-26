@@ -97,7 +97,7 @@ extension SX_FileManger {
                 let timeInterval = -(fileCreatDate.timeIntervalSinceNow)
                 
                 if timeInterval > cacheData {
-                 return false
+                    return false
                 } else {
                     return true
                 }
@@ -105,7 +105,7 @@ extension SX_FileManger {
             return true
         }
         catch  { }
-      return true
+        return true
     }
 }
 
@@ -114,11 +114,10 @@ extension SX_FileManger {
  */
 extension SX_FileManger {
     class func deleteCacheFiles (filePath: NSString) -> Bool {
-        
-      let fileManager = FileManager.default
+        let fileManager = FileManager.default
         if fileManager.fileExists(atPath: filePath as String) {
             do {
-            try fileManager.removeItem(atPath: filePath as String)
+                try fileManager.removeItem(atPath: filePath as String)
             }
             catch { }
         }
@@ -131,12 +130,13 @@ extension SX_FileManger {
  */
 extension SX_FileManger {
     class func clearAllCacheFile() -> Bool {
-        
-        
-        
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: CacheFilePath as String) {
+            do {
+                try fileManager.removeItem(atPath: CacheFilePath as String)
+            }
+            catch { }
+        }
         return true
-        
     }
 }
-
-
