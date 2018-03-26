@@ -25,7 +25,7 @@ class SX_FileManger: NSObject {
      * 写入文件
      **/
     class func witeToFile (fileName: NSString,content: NSString) -> Bool {
-        let error : Bool
+        let error1 = Bool()
         let filePath = CacheFilePath + "/" + (fileName as String)
         let fileManager = FileManager.default
         if !(fileManager.fileExists(atPath: filePath)) {
@@ -35,7 +35,7 @@ class SX_FileManger: NSObject {
             catch { }
         }
         
-        if !(error) {
+        if !(error1) {
             do {
                 try content.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8.rawValue)
             }
@@ -52,37 +52,58 @@ class SX_FileManger: NSObject {
      *  return 返回字符串
      */
     class func readFile (fileName: NSString) -> NSString {
-        
-        
-        
+        let error = Bool()
+        let filePath = CacheFilePath + "/" + (fileName as String)
+        let fileManager = FileManager.default
+        var fileStr = ""
+        if fileManager.fileExists(atPath: filePath) {
+            do {
+                try fileStr = NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String
+            }
+            catch  { }
+        }
+        if !(error) {
+            return fileStr as NSString
+        }else{
+            
+        }
     }
-    
-    /**
-     *  是否有缓存
-     */
+}
+
+/**
+ *  是否有缓存
+ */
+extension SX_FileManger {
     class func isHasCacheFile (fileName: NSString,cacheData:SXFileCacheTime) -> Bool {
         
+        return false
     }
-    
-    /**
-     *  清除所有缓存文件
-     */
-    class func clearAllCacheFile -> Bool {
-       
-        
-        
-        
-        
-    }
-    
-    /**
-     *  清除指定路径的缓存文件
-     */
-    class func deleteCacheFiles (filePath: NSString) -> Bool
-    
-    
-    
-    
-    
-    
 }
+
+/**
+ *  清除指定路径的缓存文件
+ */
+extension SX_FileManger {
+    class func deleteCacheFiles (filePath: NSString) -> Bool {
+        
+        
+        
+        return false
+        
+    }
+}
+
+/**
+ *  清除所有缓存文件
+ */
+extension SX_FileManger {
+    class func clearAllCacheFile() -> Bool {
+        
+        
+        
+        return true
+        
+    }
+}
+
+
