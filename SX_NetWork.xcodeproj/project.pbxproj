@@ -27,6 +27,7 @@
 		32E71451200F4CE000897291 /* SX_ResumeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */; };
 		456724162064A71B00000589 /* SX_ADScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456724152064A71B00000589 /* SX_ADScrollModel.swift */; };
 		45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E17206888B700F9F370 /* InterfaceConfig.swift */; };
+		45C59E1A206893D700F9F370 /* SX_FileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E19206893D700F9F370 /* SX_FileManger.swift */; };
 		E332B38597D9F407BB687778 /* Pods_SX_NetWorkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92281C5D3B8DEAFF26DDC1F /* Pods_SX_NetWorkUITests.framework */; };
 		F7B0843D1875922DBAA1760A /* Pods_SX_NetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ResumeViewVC.swift; sourceTree = "<group>"; };
 		456724152064A71B00000589 /* SX_ADScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ADScrollModel.swift; sourceTree = "<group>"; };
 		45C59E17206888B700F9F370 /* InterfaceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceConfig.swift; sourceTree = "<group>"; };
+		45C59E19206893D700F9F370 /* SX_FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_FileManger.swift; sourceTree = "<group>"; };
 		91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SX_NetWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5B32B961BF5031F1421324 /* Pods-SX_NetWorkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CACD465A82910E297B8C0ECF /* Pods-SX_NetWorkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				32AE833D2015C6D800B2BCEB /* SX_NetWorkTools.swift */,
+				45C59E19206893D700F9F370 /* SX_FileManger.swift */,
 			);
 			path = SX_NetWork;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 			files = (
 				456724162064A71B00000589 /* SX_ADScrollModel.swift in Sources */,
 				32E7144D200F4C2300897291 /* SX_PositionViewVC.swift in Sources */,
+				45C59E1A206893D700F9F370 /* SX_FileManger.swift in Sources */,
 				32E71451200F4CE000897291 /* SX_ResumeViewVC.swift in Sources */,
 				3223067E20623660007A1150 /* SX_ADCollectionViewCell.swift in Sources */,
 				3223067C206228BD007A1150 /* SX_ADScrollerView.swift in Sources */,

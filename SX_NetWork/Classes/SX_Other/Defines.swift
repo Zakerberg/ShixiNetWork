@@ -20,6 +20,3 @@ let kTabBarHeight = UIApplication.shared.statusBarFrame.size.height > 20 ? 83 : 
 
 
 
-
-
-

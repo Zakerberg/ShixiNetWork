@@ -31,7 +31,6 @@ let URL_Position_SearchPosition = "\(PrefixAddress)/appjobsearch?"
 
 
 
-
 //MARK: -----------------   简历中心 ! ! ! !  -----------------
 
 
