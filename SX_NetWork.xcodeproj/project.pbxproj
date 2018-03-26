@@ -26,6 +26,7 @@
 		32E7144F200F4C9700897291 /* SX_MineCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7144E200F4C9700897291 /* SX_MineCenterVC.swift */; };
 		32E71451200F4CE000897291 /* SX_ResumeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */; };
 		456724162064A71B00000589 /* SX_ADScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456724152064A71B00000589 /* SX_ADScrollModel.swift */; };
+		45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E17206888B700F9F370 /* InterfaceConfig.swift */; };
 		E332B38597D9F407BB687778 /* Pods_SX_NetWorkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92281C5D3B8DEAFF26DDC1F /* Pods_SX_NetWorkUITests.framework */; };
 		F7B0843D1875922DBAA1760A /* Pods_SX_NetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		32E7144E200F4C9700897291 /* SX_MineCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_MineCenterVC.swift; sourceTree = "<group>"; };
 		32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ResumeViewVC.swift; sourceTree = "<group>"; };
 		456724152064A71B00000589 /* SX_ADScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ADScrollModel.swift; sourceTree = "<group>"; };
+		45C59E17206888B700F9F370 /* InterfaceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceConfig.swift; sourceTree = "<group>"; };
 		91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SX_NetWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5B32B961BF5031F1421324 /* Pods-SX_NetWorkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CACD465A82910E297B8C0ECF /* Pods-SX_NetWorkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				32E71445200D8CBF00897291 /* SX_Category */,
 				32E71443200C914700897291 /* Common.swift */,
 				32E7144A200F3D1800897291 /* Defines.swift */,
+				45C59E17206888B700F9F370 /* InterfaceConfig.swift */,
 			);
 			path = SX_Other;
 			sourceTree = "<group>";
@@ -612,7 +615,6 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -623,7 +625,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,6 +668,7 @@
 				32AE833E2015C6D800B2BCEB /* SX_NetWorkTools.swift in Sources */,
 				32E71444200C914700897291 /* Common.swift in Sources */,
 				32E71449200DC7FF00897291 /* SX_TabBarController.swift in Sources */,
+				45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */,
 				32E7144B200F3D1800897291 /* Defines.swift in Sources */,
 				32E713FE200C8DC600897291 /* AppDelegate.swift in Sources */,
 				32E7144F200F4C9700897291 /* SX_MineCenterVC.swift in Sources */,

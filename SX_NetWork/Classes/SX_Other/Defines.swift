@@ -4,7 +4,6 @@
 //
 //  Created by Micahel 柏 on 2018/1/17.
 //  Copyright © 2018年 Shixi (Beijing) Technology Limited (Company). All rights reserved.
-///Users/heather/Desktop/SX_NetWork/SX_NetWork/Classes/SX_Other/SX_NetWork
 
 import UIKit
 import RxSwift
