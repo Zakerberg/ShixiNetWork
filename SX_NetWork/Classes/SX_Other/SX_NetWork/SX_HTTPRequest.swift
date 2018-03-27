@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 
 enum HttpRequestCachePolicy : NSInteger {
-    case `default` = 0             // 只请求数据，不缓存数据
+    case Default = 0             // 只请求数据，不缓存数据
     case ReloadIgnoringCache      // 忽略缓存，重新请求
     case ReturnCacheDataThenLoad  // 有缓存先返回缓存，同步请求数据
     case ReturnCacheDataElseLoad  // 有缓存用缓存，无缓存重新请求(用于数据不变时)
@@ -22,7 +22,7 @@ enum HttpRequestType : NSInteger {
     case POST
 }
 
-let constkTimeOutInvertral : CGFloat = 30.0
+let kTimeOutInvertral : CGFloat = 30.0
 
 class SX_HTTPRequest: NSObject {
     
@@ -38,10 +38,6 @@ class SX_HTTPRequest: NSObject {
     let timeOutInterval = TimeInterval()
     var sessionManager : AFHTTPSessionManager!
     
-    class func setHeader(handler:((_ requestSerializer: AFHTTPRequestSerializer) -> ())) {
-        
-    }
-    
     override init() {
         
         // 1. 创建SessionManager
@@ -51,12 +47,19 @@ class SX_HTTPRequest: NSObject {
         self.sessionManager.requestSerializer = AFHTTPRequestSerializer()
         self.sessionManager.responseSerializer = AFJSONResponseSerializer()
         
-        
-        
-        
-        
+        self.sessionManager.requestSerializer.timeoutInterval = TimeInterval(kTimeOutInvertral)
+        self.sessionManager.responseSerializer.acceptableContentTypes = NSSet(objects: "application/json", "text/json", "text/javascript", "text/html", "text/plain") as? Set<String>
     }
     
+    class func setHeader(handler:((_ requestSerializer: AFHTTPRequestSerializer) -> ())) {
+        let requestSerializer = SX_HTTPRequest.shared.sessionManager.requestSerializer
+        handler(requestSerializer)
+    }
+    
+    static let shared:SX_HTTPRequest = {
+        let instance = SX_HTTPRequest()
+        return instance
+    }()
 }
 
 
@@ -72,6 +75,10 @@ extension SX_HTTPRequest {
      *  param failureHandler 请求失败后的回调
      */
     class func GET (url: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
+        
+        
+        
+        
         
     }
     
@@ -110,7 +117,7 @@ extension SX_HTTPRequest {
     }
     
     /**
-     *  POST1请求
+     *  POST请求
      *
      *  param URL            请求路径
      *  param params         请求参数
@@ -147,17 +154,41 @@ extension SX_HTTPRequest {
 extension SX_HTTPRequest {
     /// 移除所有缓存
     class func removeAllCaches () {
-        
-        
+        SX_FileManger.clearAllCacheFile()
     }
     
     /// 取消所有网络请求
     class func cancelAllOperations () {
-        
-        
+        SX_HTTPRequest.shared.sessionManager.operationQueue.cancelAllOperations()
     }
 }
 
+extension SX_HTTPRequest {
+    class func requestMethod (requestType:HttpRequestType, cachePolicy: HttpRequestCachePolicy, url: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
+        
+        if SX_HTTPRequest.shared.timeOutInterval > 0 {
+        SX_HTTPRequest.shared.sessionManager.requestSerializer.timeoutInterval = SX_HTTPRequest.shared.timeOutInterval
+        }
+        
+        // Default、ReloadIgnoringCache 这两种策略始终都发送请求
+        // *********** 其他三种策略，读取本地缓存 ***********
+        if cachePolicy == .ReturnCacheDataThenLoad || cachePolicy == .ReturnCacheDataElseLoad || cachePolicy == .ReturnCacheDataDontLoad {
+            
+            let dataStr = SX_FileManger.readFile(fileName: )
+            
+            
+            
+            
+        } else {
+            
+            
+            
+            
+            
+            
+        }
+    }
+}
 
 
 

@@ -4,7 +4,7 @@
 //
 //  Created by heather on 2018/1/22.
 //  Copyright © 2018年 Shixi (Beijing) Technology Limited (Company). All rights reserved.
-//
+// AFN 简单封装
 
 import UIKit
 import AFNetworking

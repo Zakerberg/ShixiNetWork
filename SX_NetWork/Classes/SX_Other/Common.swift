@@ -9,8 +9,7 @@
  import UIKit
  import SnapKit
  
- 
- // MARK: --------------------- UIColor Extension --------------------
+ // MARK: - UIColor Extension
  extension UIColor {
     
     /// rgb颜色
@@ -73,7 +72,7 @@
  }
  
  
- // MARK: --------------------- UIImage Extension --------------------
+ // MARK: - UIImage Extension
  
  // 根据颜色生成一张纯色图片
  extension UIImage {
@@ -90,40 +89,8 @@
     }
  }
  
-// extension NSMutableDictionary {
-//
-//    open override func description(withLocale locale: Any?) -> String {
-//
-//        var strM = "(\n"
-//
-//        self.enumerateKeysAndObjects({
-//        strM += "\t\($0.0), \n"
-//
-//        })
-//    }
-// }
-//
-// extension NSMutableArray {
-//
-//    open override func description(withLocale locale: Any?) -> String {
-//
-//        var str = "(\n"
-//
-//        self.enumerateObjects({_,_,_ in
-//
-//            str += "\t\($0.0), \n"
-//        })
-//
-//        return str
-//    }
-// }
- 
-// MARK: --------------------- UI链式编程 -------------------
- 
- protocol ViewChainable {
-    
- }
- 
+ // MARK: - UI链式编程
+ protocol ViewChainable { }
  extension ViewChainable where Self: UIView {
     
     @discardableResult
@@ -151,3 +118,30 @@
   //使用,前面是十六进制值,后面是透明度(粉嫩色...)
   self.view.backgroundColor = HexColor(0xFF335B,1.0f);
   */
+ 
+ 
+ //MARK: - NSString Extension
+ extension String  {
+    var md5: String! {
+        let str = self.cString(using: String.Encoding.utf8)
+        let strLen = CC_LONG(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let digestLen = Int(CC_MD5_DIGEST_LENGTH)
+        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLen)
+        
+        CC_MD5(str!, strLen, result)
+        
+        let hash = NSMutableString()
+        for i in 0...digestLen {
+            hash.appendFormat("%02x", result[i])
+        }
+        
+        result.dealloc(digestLen)
+        
+        return String(format: hash as String)
+    }
+ }
+ 
+ 
+ 
+ 
+ 
