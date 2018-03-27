@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 3/26/18.
 //  Copyright © 2018 Shixi (Beijing) Technology Limited (Company). All rights reserved.
-// 接口的宏
+//  接口的宏
 
 import UIKit
 

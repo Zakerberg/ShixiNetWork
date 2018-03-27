@@ -76,6 +76,7 @@
 		32E7144C200F4C2300897291 /* SX_PositionViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_PositionViewVC.swift; sourceTree = "<group>"; };
 		32E7144E200F4C9700897291 /* SX_MineCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_MineCenterVC.swift; sourceTree = "<group>"; };
 		32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ResumeViewVC.swift; sourceTree = "<group>"; };
+		450ACACD206A8A9C00621767 /* SX_NetWork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SX_NetWork_Header.h; sourceTree = "<group>"; };
 		456724152064A71B00000589 /* SX_ADScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ADScrollModel.swift; sourceTree = "<group>"; };
 		45C59E17206888B700F9F370 /* InterfaceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceConfig.swift; sourceTree = "<group>"; };
 		45C59E19206893D700F9F370 /* SX_FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_FileManger.swift; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 			children = (
 				32E7142E200C8E7800897291 /* Classes */,
 				32E713FD200C8DC600897291 /* AppDelegate.swift */,
+				450ACACD206A8A9C00621767 /* SX_NetWork_Header.h */,
 				32E71407200C8DC600897291 /* Assets.xcassets */,
 				32E71409200C8DC600897291 /* LaunchScreen.storyboard */,
 				32E7140C200C8DC600897291 /* Info.plist */,
@@ -848,7 +850,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shixi.SX-NetWork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/michaelbai/Documents/GitHub开源项目/实习网 Swift/SX_NetWork/SX_NetWork_Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -867,7 +869,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shixi.SX-NetWork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/michaelbai/Documents/GitHub开源项目/实习网 Swift/SX_NetWork/SX_NetWork_Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
