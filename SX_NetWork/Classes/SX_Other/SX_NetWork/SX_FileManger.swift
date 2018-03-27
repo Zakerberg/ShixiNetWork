@@ -87,10 +87,10 @@ extension SX_FileManger {
             return false
         }
         
-        let error : NSError? = nil
+        //let _ : NSError? = nil
         
         do{
-            var fileAttributes = try fileManager.attributesOfItem(atPath: filePath) as NSDictionary
+            let fileAttributes = try fileManager.attributesOfItem(atPath: filePath) as NSDictionary
             
             if fileAttributes != nil {
                 let fileCreatDate = fileAttributes.object(forKey: FileAttributeKey.creationDate) as! NSDate
