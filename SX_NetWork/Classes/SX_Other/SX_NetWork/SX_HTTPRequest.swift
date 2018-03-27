@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import MJExtension
 
 enum HttpRequestCachePolicy : NSInteger {
     case Default = 0             // 只请求数据，不缓存数据
@@ -167,27 +168,68 @@ extension SX_HTTPRequest {
     class func requestMethod (requestType:HttpRequestType, cachePolicy: HttpRequestCachePolicy, url: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
         
         if SX_HTTPRequest.shared.timeOutInterval > 0 {
-        SX_HTTPRequest.shared.sessionManager.requestSerializer.timeoutInterval = SX_HTTPRequest.shared.timeOutInterval
+            SX_HTTPRequest.shared.sessionManager.requestSerializer.timeoutInterval = SX_HTTPRequest.shared.timeOutInterval
         }
         
         // Default、ReloadIgnoringCache 这两种策略始终都发送请求
         // *********** 其他三种策略，读取本地缓存 ***********
         if cachePolicy == .ReturnCacheDataThenLoad || cachePolicy == .ReturnCacheDataElseLoad || cachePolicy == .ReturnCacheDataDontLoad {
             
-            let dataStr = SX_FileManger.readFile(fileName: )
+            // let dataStr = SX_FileManger.readFile(fileName: )
             
+            let dataObj: Any = url.mj_JSONData()
             
-            
-            
-        } else {
-            
-            
-            
-            
-            
-            
+            switch cachePolicy {
+            case .ReturnCacheDataThenLoad: // 先返回缓存，同时请求
+                successHandler!(dataObj)
+                
+                break
+            case .ReturnCacheDataElseLoad: // 有缓存就返回缓存，没有就请求
+                successHandler!(dataObj)
+                
+                return
+            case .ReturnCacheDataDontLoad: // 有缓存就返回缓存,从不请求（用于没有网络）
+                successHandler!(dataObj)
+                
+            return // 退出从不请求
+            case .Default:
+                
+                break
+            case .ReloadIgnoringCache:
+                
+                break
+            }
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 

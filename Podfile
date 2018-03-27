@@ -13,6 +13,7 @@ pod 'AFNetworking'
 pod 'RxCocoa'
 pod 'RxSwift'
 pod 'Kingfisher'
+pod 'MJExtension'
 
   target 'SX_NetWorkTests' do
     inherit! :search_paths
