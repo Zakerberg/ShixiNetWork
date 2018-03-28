@@ -26,6 +26,7 @@
 		32E7144F200F4C9700897291 /* SX_MineCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7144E200F4C9700897291 /* SX_MineCenterVC.swift */; };
 		32E71451200F4CE000897291 /* SX_ResumeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */; };
 		456724162064A71B00000589 /* SX_ADScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456724152064A71B00000589 /* SX_ADScrollModel.swift */; };
+		45AAE51A206B927700D09D3D /* SX_RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AAE519206B927700D09D3D /* SX_RequestService.swift */; };
 		45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E17206888B700F9F370 /* InterfaceConfig.swift */; };
 		45C59E1A206893D700F9F370 /* SX_FileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E19206893D700F9F370 /* SX_FileManger.swift */; };
 		45C59E1E2068E16100F9F370 /* SX_HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */; };
@@ -78,6 +79,7 @@
 		32E71450200F4CE000897291 /* SX_ResumeViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ResumeViewVC.swift; sourceTree = "<group>"; };
 		450ACACD206A8A9C00621767 /* SX_NetWork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SX_NetWork_Header.h; sourceTree = "<group>"; };
 		456724152064A71B00000589 /* SX_ADScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ADScrollModel.swift; sourceTree = "<group>"; };
+		45AAE519206B927700D09D3D /* SX_RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_RequestService.swift; sourceTree = "<group>"; };
 		45C59E17206888B700F9F370 /* InterfaceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceConfig.swift; sourceTree = "<group>"; };
 		45C59E19206893D700F9F370 /* SX_FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_FileManger.swift; sourceTree = "<group>"; };
 		45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_HTTPRequest.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				32AE833D2015C6D800B2BCEB /* SX_NetWorkTools.swift */,
 				45C59E19206893D700F9F370 /* SX_FileManger.swift */,
 				45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */,
+				45AAE519206B927700D09D3D /* SX_RequestService.swift */,
 			);
 			path = SX_NetWork;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				32E71440200C8ED800897291 /* SX_GuideViewController.swift in Sources */,
 				32AE833E2015C6D800B2BCEB /* SX_NetWorkTools.swift in Sources */,
 				32E71444200C914700897291 /* Common.swift in Sources */,
+				45AAE51A206B927700D09D3D /* SX_RequestService.swift in Sources */,
 				32E71449200DC7FF00897291 /* SX_TabBarController.swift in Sources */,
 				45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */,
 				32E7144B200F3D1800897291 /* Defines.swift in Sources */,
