@@ -219,14 +219,20 @@ extension SX_HTTPRequest {
             break
         /// POST 请求
         case .POST:
-            
-            
-            
-            
-            
+            SX_HTTPRequest.shared.sessionManager.post(url as String, parameters: params, success: { (task: URLSessionDataTask!, responseObject: Any) in
+                
+                if (successHandler != nil) {
+                    if(cachePolicy != .Default && responseObject != nil){
+                        SX_FileManger.witeToFile(fileName: url.md5, content: responseObject as! NSString)
+                    }
+                }
+                
+            }, failure: { (task: URLSessionDataTask!, error: NSError) in
+                failureHandler!(error)
+                } as! (URLSessionDataTask?, Error) -> Void)
             break
-        default:
             
+        default:
             
             break
         }
