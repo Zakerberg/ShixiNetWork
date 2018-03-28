@@ -123,9 +123,17 @@ extension SX_HTTPRequest {
 
 //MARK: - AFN 表单上传图片
 extension SX_HTTPRequest {
-    class func UploadImageWithUrl (URLString: NSString, params: NSDictionary, image: UIImage, success:((_ success: NSDictionary) -> ()), faliure: ((_ faliure: NSError) -> ())) {
+    class func UploadImageWithUrl (URLString: NSString, params: NSDictionary, image: UIImage, success:@escaping ((_ success: NSDictionary) -> ()), faliure: @escaping ((_ faliure: NSError) -> ())) {
         
-    }
+        SX_HTTPRequest.shared.sessionManager.post(URLString as String, parameters: params, constructingBodyWith: { (formatData: AFMultipartFormData) in
+            formatData.appendPart(withFileData: UIImageJPEGRepresentation(image, 0.3)!, name: "file", fileName: "name", mimeType: "image/jpeg")
+        }, success: { (task: URLSessionDataTask!, responseObject: Any) in
+            print("请求成功\(responseObject)结束报文")
+            success(responseObject as! NSDictionary)
+        }, failure: { (task: URLSessionDataTask!, error: NSError) in
+            faliure(error)
+            } as? (URLSessionDataTask?, Error) -> Void
+        )}
 }
 
 //MARK: - AFN 参数加在AFMultipartFormData -- 用于表参数
@@ -154,6 +162,7 @@ extension SX_HTTPRequest {
     }
 }
 
+//MARK: - requestMethod
 extension SX_HTTPRequest {
     class func requestMethod (requestType:HttpRequestType, cachePolicy: HttpRequestCachePolicy, url: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
         
