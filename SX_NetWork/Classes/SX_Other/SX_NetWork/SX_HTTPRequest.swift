@@ -138,15 +138,19 @@ extension SX_HTTPRequest {
 
 //MARK: - AFN 参数加在AFMultipartFormData -- 用于表参数
 extension SX_HTTPRequest {
-    class func POSTWithFormData (url: NSString, params: NSDictionary, constructingBodyClosure:((_ formData : Any,AFMultipartFormData) -> ()), cachePolicy: HttpRequestCachePolicy, successHandler: HttpRequestSuccessClosure, failure: HttpRequestFailClosure) {
+    class func POSTWithFormData (url: NSString, params: NSDictionary, constructingBodyClosure:@escaping ((_ formData: AFMultipartFormData) -> ()), cachePolicy: HttpRequestCachePolicy, successHandler: HttpRequestSuccessClosure, failure: HttpRequestFailClosure) {
         
-        
-        
-        
-        
-        
-        
-        
+        SX_HTTPRequest.shared.sessionManager.post(url as String, parameters: params, constructingBodyWith: constructingBodyClosure, success: { (task: URLSessionTask, responseObject: Any) in
+            
+            if successHandler != nil {
+                if (cachePolicy != .Default && responseObject != nil){
+                    SX_FileManger.witeToFile(fileName: url.md5, content: responseObject as! NSString)
+                }
+                successHandler!(responseObject)
+            }
+        }, failure: { (task, error) in
+            
+        })
     }
 }
 
@@ -158,7 +162,7 @@ extension SX_HTTPRequest {
         request.url = NSURL.fileURL(withPath: URLString as String)
         request.timeoutInterval = TimeInterval(kTimeOutInvertral)
         request.httpMethod = "POST"
-         // 1.设置请求头
+        // 1.设置请求头
         //self.setNetHeaderBy(mgr: request)
         request.httpBody = data as Data
         // 2.发送异步请求
@@ -269,12 +273,12 @@ extension SX_HTTPRequest {
 
 extension SX_HTTPRequest {
     class func setNetHeaderBy (mgr: NSMutableURLRequest) {
-          // 加请求头
-//        mgr.setValue("Post", forHTTPHeaderField: "Method")
-//        mgr.setValue("text/plain", forHTTPHeaderField: "Content-Type")
-//        mgr.setValue("/mis/pic/", forHTTPHeaderField: "Pic-Path")
-//        mgr.setValue("0", forHTTPHeaderField: "Pic-Size")
-//        mgr.setValue("base64", forHTTPHeaderField: "Pic-Encoding")
+        // 加请求头
+        //        mgr.setValue("Post", forHTTPHeaderField: "Method")
+        //        mgr.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+        //        mgr.setValue("/mis/pic/", forHTTPHeaderField: "Pic-Path")
+        //        mgr.setValue("0", forHTTPHeaderField: "Pic-Size")
+        //        mgr.setValue("base64", forHTTPHeaderField: "Pic-Encoding")
         
     }
 }
