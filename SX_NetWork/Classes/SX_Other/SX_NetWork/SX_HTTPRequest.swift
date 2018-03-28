@@ -63,7 +63,6 @@ class SX_HTTPRequest: NSObject {
     }()
 }
 
-
 //MARK: - GET请求
 extension SX_HTTPRequest {
     
@@ -76,11 +75,7 @@ extension SX_HTTPRequest {
      *  param failureHandler 请求失败后的回调
      */
     class func GET (url: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
-        
-        
-        
-        
-        
+        SX_HTTPRequest.requestMethod(requestType: .GET, cachePolicy: .Default, url: url, params: params, successHandler: successHandler, failureHandler: failureHandler)
     }
     
     /**
@@ -92,11 +87,8 @@ extension SX_HTTPRequest {
      *  param successHandler 请求成功后的回调
      *  param failureHandler 请求失败后的回调
      */
-    class func GET (URL: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure){
-        
-        
-        
-        
+    class func GET (URL: NSString, params: NSDictionary, cachePolicy:HttpRequestCachePolicy, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure){
+        SX_HTTPRequest.requestMethod(requestType: .GET, cachePolicy: cachePolicy, url: URL, params: params, successHandler: successHandler, failureHandler: failureHandler)
     }
 }
 
@@ -112,9 +104,7 @@ extension SX_HTTPRequest {
      *  param failureHandler 请求失败后的回调
      */
     class func POST (url: NSString, params: NSDictionary, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
-        
-        
-        
+        SX_HTTPRequest.requestMethod(requestType: .POST, cachePolicy: .Default, url: url, params: params, successHandler: successHandler, failureHandler: failureHandler)
     }
     
     /**
@@ -127,7 +117,7 @@ extension SX_HTTPRequest {
      *  param failureHandler 请求失败后的回调
      */
     class func POST (URL: NSString,params: NSDictionary, cachePolicy: HttpRequestCachePolicy, successHandler: HttpRequestSuccessClosure, failureHandler: HttpRequestFailClosure) {
-        
+        SX_HTTPRequest.requestMethod(requestType: .POST, cachePolicy: cachePolicy, url: URL, params: params, successHandler: successHandler, failureHandler: failureHandler)
     }
 }
 
