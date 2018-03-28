@@ -120,10 +120,10 @@
   */
  
  //MARK: - NSString Extension
- extension String  {
-    var md5: String! {
-        let str = self.cString(using: String.Encoding.utf8)
-        let strLen = CC_LONG(self.lengthOfBytes(using: String.Encoding.utf8))
+ extension NSString  {
+    var md5: NSString! {
+        let str = self.cString(using: String.Encoding.utf8.rawValue)
+        let strLen = CC_LONG(self.lengthOfBytes(using: String.Encoding.utf8.rawValue))
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
         let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
 
@@ -134,7 +134,7 @@
             hash.appendFormat("%02x%02x%02x%02x%02x%02x", result[i])
         }
         result.deallocate(capacity: digestLen)
-        return String(format: hash as String)
+        return String(format: hash as String) as NSString
     }
  }
 

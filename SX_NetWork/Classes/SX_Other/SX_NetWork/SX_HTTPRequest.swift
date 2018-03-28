@@ -175,9 +175,8 @@ extension SX_HTTPRequest {
         // *********** 其他三种策略，读取本地缓存 ***********
         if cachePolicy == .ReturnCacheDataThenLoad || cachePolicy == .ReturnCacheDataElseLoad || cachePolicy == .ReturnCacheDataDontLoad {
             
-            // let dataStr = SX_FileManger.readFile(fileName: )
-            
-            let dataObj: Any = url.mj_JSONData()
+            let dataStr = SX_FileManger.readFile(fileName: url.md5)
+            let dataObj: Any = dataStr.mj_JSONData()
             
             switch cachePolicy {
             case .ReturnCacheDataThenLoad: // 先返回缓存，同时请求
@@ -200,9 +199,38 @@ extension SX_HTTPRequest {
                 break
             }
         }
+        
+        /// *********** 发送请求 ***********
+        switch requestType {
+            
+        /// GET 请求
+        case .GET:
+            SX_HTTPRequest.shared.sessionManager.get(url as String, parameters: params, success: { (task: URLSessionDataTask!, responseObject: Any) in
+                
+                if (successHandler != nil) {
+                    if (cachePolicy != .Default && responseObject != nil)  {
+                        SX_FileManger.witeToFile(fileName: url.md5, content: responseObject as! NSString)
+                    }
+                }
+            }, failure: { (task: URLSessionDataTask!, error: NSError) in
+                failureHandler!(error)
+                } as? (URLSessionDataTask?, Error) -> Void)
+            
+            break
+        /// POST 请求
+        case .POST:
+            
+            
+            
+            
+            
+            break
+        default:
+            
+            
+            break
+        }
     }
-
-    
 }
 
 
