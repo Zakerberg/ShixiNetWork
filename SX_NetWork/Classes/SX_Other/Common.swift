@@ -8,7 +8,7 @@
  
  import UIKit
  import SnapKit
-  
+ 
  // MARK: - UIColor Extension
  extension UIColor {
     
@@ -121,12 +121,13 @@
  
  //MARK: - NSString Extension
  extension NSString  {
+    
     var md5: NSString! {
         let str = self.cString(using: String.Encoding.utf8.rawValue)
         let strLen = CC_LONG(self.lengthOfBytes(using: String.Encoding.utf8.rawValue))
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
         let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
-
+        
         CC_MD5(str!, strLen, result)
         
         let hash = NSMutableString()
@@ -136,5 +137,15 @@
         result.deallocate(capacity: digestLen)
         return String(format: hash as String) as NSString
     }
+    
+    class func jsonStringToDictionary (jsonstr: NSString) -> NSDictionary {
+        do{
+            let json = try JSONSerialization.jsonObject(with: jsonstr.data(using: String.Encoding.utf8.rawValue)!, options: .allowFragments)
+            return json as! NSDictionary
+        }catch{ }
+        
+        let str = NSDictionary()
+        return str
+    }
  }
-
+ 

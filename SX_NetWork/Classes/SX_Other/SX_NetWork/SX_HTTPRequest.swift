@@ -128,7 +128,7 @@ extension SX_HTTPRequest {
         SX_HTTPRequest.shared.sessionManager.post(URLString as String, parameters: params, constructingBodyWith: { (formatData: AFMultipartFormData) in
             formatData.appendPart(withFileData: UIImageJPEGRepresentation(image, 0.3)!, name: "file", fileName: "name", mimeType: "image/jpeg")
         }, success: { (task: URLSessionDataTask!, responseObject: Any) in
-            print("请求成功\(responseObject)结束报文")
+            print("请求成功\(responseObject)\r结束报文")
             success(responseObject as! NSDictionary)
         }, failure: { (task: URLSessionDataTask!, error: NSError) in
             faliure(error)
@@ -139,13 +139,42 @@ extension SX_HTTPRequest {
 //MARK: - AFN 参数加在AFMultipartFormData -- 用于表参数
 extension SX_HTTPRequest {
     class func POSTWithFormData (url: NSString, params: NSDictionary, constructingBodyClosure:((_ formData : Any,AFMultipartFormData) -> ()), cachePolicy: HttpRequestCachePolicy, successHandler: HttpRequestSuccessClosure, failure: HttpRequestFailClosure) {
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
-//MARK: - 用系统的网络请求 把参数加在dody里
+//MARK: - 用系统的网络请求 把参数加在body里
 extension SX_HTTPRequest {
-    class func POSTWithData (URLString: NSString, params: NSDictionary, data: NSData, success: ((_ success: NSDictionary) -> ()), faliure: ((_ faliure: NSError) -> ())) {
+    class func POSTWithData (URLString: NSString, params: NSDictionary, data: NSData, success: @escaping ((_ success: NSDictionary) -> ()), faliure: @escaping ((_ faliure: NSError) -> ())) {
         
+        let request = NSMutableURLRequest()
+        request.url = NSURL.fileURL(withPath: URLString as String)
+        request.timeoutInterval = TimeInterval(kTimeOutInvertral)
+        request.httpMethod = "POST"
+         // 1.设置请求头
+        //self.setNetHeaderBy(mgr: request)
+        request.httpBody = data as Data
+        // 2.发送异步请求
+        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue(), completionHandler: { (response, data, error) in
+            
+            let jsonstr = NSMutableString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            let dic: NSDictionary = NSString.jsonStringToDictionary(jsonstr: jsonstr!)
+            DispatchQueue.global().async(execute: {
+                if jsonstr!.length > 10 {
+                    print("请求成功\(dic)  \r结束报文")
+                    success(dic)
+                }else {
+                    faliure(error! as NSError)
+                }
+            })
+        })
     }
 }
 
@@ -235,6 +264,18 @@ extension SX_HTTPRequest {
             
             break
         }
+    }
+}
+
+extension SX_HTTPRequest {
+    class func setNetHeaderBy (mgr: NSMutableURLRequest) {
+          // 加请求头
+//        mgr.setValue("Post", forHTTPHeaderField: "Method")
+//        mgr.setValue("text/plain", forHTTPHeaderField: "Content-Type")
+//        mgr.setValue("/mis/pic/", forHTTPHeaderField: "Pic-Path")
+//        mgr.setValue("0", forHTTPHeaderField: "Pic-Size")
+//        mgr.setValue("base64", forHTTPHeaderField: "Pic-Encoding")
+        
     }
 }
 
