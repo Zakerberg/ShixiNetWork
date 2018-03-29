@@ -24,7 +24,6 @@ class SX_RequestService: NSObject {
      */
     class func setHeader (headerKV: NSDictionary) {
         SX_HTTPRequest.setHeader { (requsetSerializer: AFHTTPRequestSerializer) in
-            
             for key in headerKV.allKeys {
                 requsetSerializer.setValue(headerKV.value(forKey: key as! String) as? String, forHTTPHeaderField: key as! String)
             }
@@ -47,9 +46,23 @@ extension SX_RequestService {
      *  success         请求成功回调
      *  failure         请求失败回调
      */
-    class func GET (url: NSString, param: Any, success: SXRequestSuccessHandler, failure: SXRequestFailureHandler) {
+    class func GET (url: NSString, param: Any, success: @escaping SXRequestSuccessHandler, failure: @escaping SXRequestFailureHandler) {
         let paramsJSON = (param as AnyObject).mj_JSONObject()
+        setReqHeader()
         
+        SX_HTTPRequest.GET(url: url, params: paramsJSON as! NSDictionary, successHandler: { (respondeData: Any) in
+            print("GET: \(url) --> 请求成功, 响应结果-->\(respondeData)")
+            
+            success(respondeData)
+            
+        }) { (error: NSError) in
+            print("GET: \(url) --> 请求失败, 错误结果-->\(error)")
+            let data = error.userInfo["com.alamofire.serialization.response.error.data"]
+            let str = NSString(data: data as! Data, encoding: String.Encoding.utf8.rawValue)
+            print("服务器的错误原因:\(String(describing: str))")
+            
+            failure(error)
+        }
     }
 }
 
