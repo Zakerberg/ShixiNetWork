@@ -32,7 +32,6 @@ class SX_NetWorkTools: AFHTTPSessionManager {
         ///   - parameters: 请求参数
         ///   - success: 成功的闭包
         ///   - failure: 失败的闭包
-    
         func request(method: SX_WorkToolMethod, urlString: String, parameters: Any?, success:@escaping (Any?)->(), failure:@escaping (Error)->()){
             // get请求
             if method == .GET {
