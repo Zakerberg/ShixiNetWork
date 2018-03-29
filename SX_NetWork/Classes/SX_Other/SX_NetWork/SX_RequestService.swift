@@ -78,7 +78,38 @@ extension SX_RequestService {
      */
     class func POST (url: NSString, param: Any, success: SXRequestSuccessHandler, failure: SXRequestFailureHandler) {
         
+        
+    }
+    
+    class func POST (url: NSString, param: Any, dict: NSDictionary, successHanlder: @escaping SXRequestSuccessHandler, failureHanlder: @escaping SXRequestFailureHandler) {
+        let paramsJSON = (param as AnyObject).mj_JSONObject()
+        setReqHeader()
+        
+        SX_HTTPRequest.POSTWithFormData(url: url, params: paramsJSON as! NSDictionary, constructingBodyClosure: { (formdata: AFMultipartFormData) in
+            for key in dict.allKeys {
+                let value: Any = dict[key] ?? ""
+                if (value as AnyObject).isKind(of: NSArray.self) {
+                    for value in dict[key] as! String {
+                        let jsonData = (value as AnyObject).data(using: String.Encoding.utf8.rawValue)
+                        formdata.appendPart(withForm: jsonData!, name: key as! String)
+                    }
+                }else{
+                    let jsonData = (value as AnyObject).data(using: String.Encoding.utf8.rawValue)
+                    formdata.appendPart(withForm: jsonData!, name: key as! String)
+                }
+            }
+        }, cachePolicy: .Default, successHandler: { (responseData: Any) in
+            print("POST:\(url) -->请求成功，响应结果-->\(responseData)")
+            successHanlder(responseData)
+        }) { (error: NSError) in
 
+            let data = error.userInfo["com.alamofire.serialization.response.error.data"]
+            let str = NSString(data: data as! Data, encoding: String.Encoding.utf8.rawValue)
+            print("服务器的错误原因:\(String(describing: str))")
+            print("POST:\(url) -->请求失败，错误:\(error)")
+            failureHanlder(error)
+        }
     }
 }
+
 
