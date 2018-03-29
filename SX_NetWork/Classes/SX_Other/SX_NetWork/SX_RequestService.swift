@@ -76,9 +76,20 @@ extension SX_RequestService {
      *  success       请求成功回调
      *  failure       请求失败回调
      */
-    class func POST (url: NSString, param: Any, success: SXRequestSuccessHandler, failure: SXRequestFailureHandler) {
+    class func POST (url: NSString, param: Any, success: @escaping SXRequestSuccessHandler, failure: @escaping SXRequestFailureHandler) {
+        let paramsJSON = (param as AnyObject).mj_JSONObject()
+        setReqHeader()
         
-        
+        SX_HTTPRequest.POST(url: url, params: paramsJSON as! NSDictionary, successHandler: { (responseData: Any) in
+            print("POST:\(url) -->请求成功，响应结果-->\(responseData)")
+            success(responseData)
+        }) { (error: NSError) in
+            print("POST:\(url) -->请求失败，错误:\(error)")
+            let data = error.userInfo["com.alamofire.serialization.response.error.data"]
+            let str = NSString(data: data as! Data, encoding: String.Encoding.utf8.rawValue)
+            print("服务器的错误原因:\(String(describing: str))")
+            failure(error)
+        }
     }
     
     class func POST (url: NSString, param: Any, dict: NSDictionary, successHanlder: @escaping SXRequestSuccessHandler, failureHanlder: @escaping SXRequestFailureHandler) {
@@ -102,7 +113,7 @@ extension SX_RequestService {
             print("POST:\(url) -->请求成功，响应结果-->\(responseData)")
             successHanlder(responseData)
         }) { (error: NSError) in
-
+            
             let data = error.userInfo["com.alamofire.serialization.response.error.data"]
             let str = NSString(data: data as! Data, encoding: String.Encoding.utf8.rawValue)
             print("服务器的错误原因:\(String(describing: str))")
