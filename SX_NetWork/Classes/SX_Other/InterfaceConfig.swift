@@ -11,8 +11,7 @@ import UIKit
 let PrefixAddress  = "http://www.shixi.com"   // 正式接口
 //let PrefixAddress = "http://129.168.0.103" // 测试接口
 
-
-//MARK: -----------------   首页 ! ! ! !  -------------------
+//MARK: 首页 !
 
 /// 英文环境首页接口
 let URL_Position_EnNewsList = "\(PrefixAddress)/apphome/indexen"
@@ -23,31 +22,6 @@ let URL_Position_ScrollAD = "\(PrefixAddress)/appad/index/1"
 /// 职位搜索
 let URL_Position_SearchPosition = "\(PrefixAddress)/appjobsearch?"
 
-
-
-
-
-
-
-
-
-//MARK: -----------------   简历中心 ! ! ! !  -----------------
-
-
-
-
-
-//MARK: -------------------   我的 ! ! ! !  ------------------
-
-
-
-//MARK: -------------------   其他 ! ! ! !  ------------------
-
-
-
-
-
-
-
-
-
+//MARK: 简历中心 !
+//MARK: 我的 !
+//MARK: 其他 !

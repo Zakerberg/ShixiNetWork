@@ -50,26 +50,20 @@ extension SX_PositionViewVC : UITableViewDelegate {
 //
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
-
+//
 //    }
 //}
 
 //MARK: - FetchData
 extension SX_PositionViewVC {
     func fetchData() {
-        
         SX_NetWorkTools.shared.request(method: .POST, urlString: URL_Position_ScrollAD, parameters: nil, success: { (responseObj : Any) in
-            
             guard let dataDic = responseObj as? [String : NSObject] else{ return }
             guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
-            
             for dic in dataArr{
-                
                 self.modelArr.append(SX_ADScrollModel(dic : dic))
             }
-            
             self.adScrollView.adScrollModelArr = self.modelArr
-            
         }) { (error : Error) in
             print(" 失败 : \(error)")
         }

@@ -279,7 +279,6 @@ extension SX_HTTPRequest {
         //        mgr.setValue("/mis/pic/", forHTTPHeaderField: "Pic-Path")
         //        mgr.setValue("0", forHTTPHeaderField: "Pic-Size")
         //        mgr.setValue("base64", forHTTPHeaderField: "Pic-Encoding")
-        
     }
 }
 
