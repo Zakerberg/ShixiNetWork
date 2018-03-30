@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
+import SDWebImage
 
 class SX_ADCollectionViewCell: UICollectionViewCell {
     
@@ -17,8 +18,9 @@ class SX_ADCollectionViewCell: UICollectionViewCell {
     var adScrollModel : SX_ADScrollModel? {
         didSet{
             titleLabel.text = adScrollModel?.ad_title
-            imageView.kf.setImage(with: URL(string:(adScrollModel?.img_url ?? "")!), placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil) { (image, error, cacheType, imageUrl) in
-            }
+//            imageView.kf.setImage(with: URL(string:(adScrollModel?.img_url ?? "")!), placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil) { (image, error, cacheType, imageUrl) in
+//            }
+            imageView.sd_setImage(with: URL(string: (adScrollModel?.img_url ?? "")!), placeholderImage: UIImage(named: "placehold"))
         }
     }
     
@@ -44,5 +46,10 @@ extension SX_ADCollectionViewCell {
     }
 }
 
-
+extension SX_ADCollectionViewCell {
+    func configCellWithModel (model: SX_ADScrollModel) {
+        
+        
+    }
+}
 

@@ -14,6 +14,7 @@ pod 'RxCocoa'
 pod 'RxSwift'
 pod 'Kingfisher'
 pod 'MJExtension'
+pod 'SDWebImage'
 
   target 'SX_NetWorkTests' do
     inherit! :search_paths

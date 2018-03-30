@@ -21,6 +21,9 @@ class SX_NetWorkTools: AFHTTPSessionManager {
             let tools = SX_NetWorkTools()
             tools.responseSerializer.acceptableContentTypes?.insert("text/html")
             tools.responseSerializer.acceptableContentTypes?.insert("text/plain")
+            tools.responseSerializer.acceptableContentTypes?.insert("text/json")
+            tools.responseSerializer.acceptableContentTypes?.insert("application/javascript")
+            tools.responseSerializer.acceptableContentTypes?.insert("ext/javascript")
             return tools
         }()
         
