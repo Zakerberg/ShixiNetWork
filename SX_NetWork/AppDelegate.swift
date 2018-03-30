@@ -19,11 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame:SCREEN_BOUNDS)
         self.window?.rootViewController = SX_TabBarController()
-        
         self.window?.makeKeyAndVisible()
-        
         Bugly.start(withAppId: BuglyAppID)
-        
         return true
     }
     
@@ -89,7 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     // MARK: - Core Data Saving support
-    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

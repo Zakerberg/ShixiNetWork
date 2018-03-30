@@ -10,13 +10,11 @@ import UIKit
 
 class SX_ADScrollModel: NSObject {
     
-    var ad_title:String = ""
-    var img_url = ""
-    var detail_url = ""
+    var img_url:String = ""
+    var detail_url:String = ""
     
     init(dic:[String:NSObject]) {
         super.init()
-        
         setValuesForKeys(dic)
     }
     

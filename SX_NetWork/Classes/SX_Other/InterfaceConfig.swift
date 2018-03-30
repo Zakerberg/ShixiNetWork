@@ -14,13 +14,13 @@ let PrefixAddress  = "http://www.shixi.com"   // 正式接口
 //MARK: 首页 !
 
 /// 英文环境首页接口
-let URL_Position_EnNewsList = "\(PrefixAddress)/apphome/indexen"
+let URL_Position_EnNewsList = PrefixAddress + "/apphome/indexen"
 /// 中文环境首页接口
-let URL_Position_NewsList   = "\(PrefixAddress)/apphome/index"
+let URL_Position_NewsList   = PrefixAddress + "/apphome/index"
 /// 首页的轮播图
-let URL_Position_ScrollAD = "\(PrefixAddress)/appad/index/1"
+let URL_Position_ScrollAD = PrefixAddress + "/appad"
 /// 职位搜索
-let URL_Position_SearchPosition = "\(PrefixAddress)/appjobsearch?"
+let URL_Position_SearchPosition = PrefixAddress + "/appjobsearch?"
 
 //MARK: 简历中心 !
 //MARK: 我的 !

@@ -25,10 +25,8 @@ class SX_ADScrollerView: UIView {
         
         adCollectionView.backgroundColor = UIColor.cyan
         adCollectionView.register(SX_ADCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifier)
-        
         adCollectionView.dataSource = self
         adCollectionView.delegate = self
-        
         return adCollectionView
         }()
     

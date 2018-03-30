@@ -14,13 +14,10 @@ class SX_PositionViewVC: UIViewController {
     let adScrollView = SX_ADScrollerView(Y: 0, H: 200)
     var modelArr = [SX_ADScrollModel]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        fetchADData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        fetchADData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,8 +29,8 @@ class SX_PositionViewVC: UIViewController {
 //MARK: - SetUI
 extension SX_PositionViewVC {
     func setUI() {
-        self.view.backgroundColor = UIColor.green
-        self.navigationController?.isNavigationBarHidden = true
+        self.view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.isTranslucent = false
         self.view.addSubview(adScrollView)
     }
 }
@@ -71,20 +68,18 @@ extension SX_PositionViewVC {
         //            print(" 失败 : \(error)")
         //        }
         
-        /*
-         let manager = AFHTTPSessionManager()
-         manager.responseSerializer.acceptableContentTypes = NSSet(objects: "text/plain", "text/javascript", "text/json", "text/html","application/javascript") as? Set<String>
-         manager.post(URL_Position_ScrollAD, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, json:Any) in
-         guard let dataDic = json as? [String : NSObject] else { return }
-         guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
-         for dic in dataArr {
-         self.modelArr.append(SX_ADScrollModel(dic: dic))
-         }
-         self.adScrollView.adScrollModelArr = self.modelArr
-         
-         }) { (task:URLSessionDataTask?, error:Error) in
-         print("error : \(error)")
-         }
-         */
+        let manager = AFHTTPSessionManager()
+        manager.responseSerializer.acceptableContentTypes = NSSet(objects: "text/plain", "text/javascript", "text/json", "text/html","application/javascript") as? Set<String>
+        manager.get(URL_Position_ScrollAD, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, json:Any) in
+            //  print("jsonData: \(json)")
+            guard let dataDic = json as? [String : NSObject] else { return }
+            guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
+            for dic in dataArr {
+                self.modelArr.append(SX_ADScrollModel(dic: dic))
+            }
+            self.adScrollView.adScrollModelArr = self.modelArr
+        }) { (task:URLSessionDataTask?, error:Error) in
+            print("error : \(error)")
+        }
     }
 }
