@@ -9,10 +9,15 @@
 import UIKit
 
 class SX_PositionViewVC: UIViewController {
-    
-    // let adScrollView = SX_ADScrollerView(Y: 64, H: 200)需要毛玻璃效果时Y为64
+
     let adScrollView = SX_ADScrollerView(Y: 0, H: 200)
     var modelArr = [SX_ADScrollModel]()
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

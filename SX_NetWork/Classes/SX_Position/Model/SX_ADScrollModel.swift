@@ -10,8 +10,9 @@ import UIKit
 
 class SX_ADScrollModel: NSObject {
     
-    var title:String = ""
-    var pic_url = ""
+    var ad_title:String = ""
+    var img_url = ""
+    var detail_url = ""
     
     init(dic:[String:NSObject]) {
         super.init()

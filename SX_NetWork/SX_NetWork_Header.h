@@ -12,6 +12,4 @@
 #import <CommonCrypto/CommonCrypto.h>
 
 
-
-
 #endif /* SX_NetWork_Header_h */

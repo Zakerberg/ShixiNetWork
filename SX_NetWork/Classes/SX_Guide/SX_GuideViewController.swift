@@ -12,7 +12,6 @@ import SnapKit
 class SX_GuideViewController: UIViewController,UIScrollViewDelegate {
     
     let NEWVIEWCONT : CGFloat = 3
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addScrroller() 
@@ -25,7 +24,6 @@ class SX_GuideViewController: UIViewController,UIScrollViewDelegate {
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
-        
         let w  = self.view.bounds.size.width
         let h  = self.view.bounds.size.height
         
@@ -44,23 +42,19 @@ class SX_GuideViewController: UIViewController,UIScrollViewDelegate {
                     
                     let button = UIButton(type: .custom)
                     button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
-                    
                     button.setTitle("立即体验", for: .normal)
                     button.setTitleColor(UIColor.SX_MainColor(), for: .normal)
                     button.layer.masksToBounds = true
                     button.layer.cornerRadius = 4
                     button.layer.borderColor = UIColor.SX_MainColor().cgColor
                     button.layer.borderWidth = 0.5
-                    
                     imageView.addSubview(button)
-                    
                     button.snp.makeConstraints({ (SX) in
                         SX.bottom.equalTo(imageView.snp.bottom).offset(-50)
                         SX.centerX.equalToSuperview()
                         SX.left.equalTo(imageView.snp.left).offset(40)
                         SX.top.equalTo(imageView.snp.top).offset(358/2)
                     })
-                    
                 }
                 scrollView.addSubview(imageView)
             }
@@ -70,14 +64,12 @@ class SX_GuideViewController: UIViewController,UIScrollViewDelegate {
 
     // MARK: - 立即体验按钮
     @objc func buttonClick(btn: UIButton) {
-        
         let usderDefaults = UserDefaults.standard
         let userLoginVC = SX_TabBarController()
         self.view.window?.rootViewController = userLoginVC
         usderDefaults.setValue("yes", forKey: "isVisitor")
-        
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
