@@ -39,7 +39,6 @@ extension SX_PositionViewVC {
 extension SX_PositionViewVC : UITableViewDelegate {
     
     
-    
 }
 
 //MARK: - UITbaleViewDataSource
@@ -57,29 +56,29 @@ extension SX_PositionViewVC : UITableViewDelegate {
 //MARK: - FetchData
 extension SX_PositionViewVC {
     func fetchADData() {
-        //        SX_NetWorkTools.shared.request(method: .POST, urlString: URL_Position_ScrollAD, parameters: nil, success: { (responseObj : Any) in
-        //            guard let dataDic = responseObj as? [String : NSObject] else{ return }
-        //            guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
-        //            for dic in dataArr{
-        //                self.modelArr.append(SX_ADScrollModel(dic : dic))
-        //            }
-        //            self.adScrollView.adScrollModelArr = self.modelArr
-        //        }) { (error : Error) in
-        //            print(" 失败 : \(error)")
-        //        }
-        
-        let manager = AFHTTPSessionManager()
-        manager.responseSerializer.acceptableContentTypes = NSSet(objects: "text/plain", "text/javascript", "text/json", "text/html","application/javascript") as? Set<String>
-        manager.get(URL_Position_ScrollAD, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, json:Any) in
-            //  print("jsonData: \(json)")
-            guard let dataDic = json as? [String : NSObject] else { return }
+        SX_NetWorkTools.shared.request(method: .POST, urlString: URL_Position_ScrollAD, parameters: nil, success: { (responseObj : Any) in
+            guard let dataDic = responseObj as? [String : NSObject] else { return }
             guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
-            for dic in dataArr {
-                self.modelArr.append(SX_ADScrollModel(dic: dic))
+            for dic in dataArr{
+                self.modelArr.append(SX_ADScrollModel(dic : dic))
             }
             self.adScrollView.adScrollModelArr = self.modelArr
-        }) { (task:URLSessionDataTask?, error:Error) in
-            print("error : \(error)")
+        }) { (error : Error) in
+            print(" 失败 : \(error)")
         }
+        
+        //        let manager = AFHTTPSessionManager()
+        //        manager.responseSerializer.acceptableContentTypes = NSSet(objects: "text/plain", "text/javascript", "text/json", "text/html","application/javascript") as? Set<String>
+        //        manager.post(URL_Position_ScrollAD, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, json:Any) in
+        //            //  print("jsonData: \(json)")
+        //            guard let dataDic = json as? [String : NSObject] else { return }
+        //            guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
+        //            for dic in dataArr {
+        //                self.modelArr.append(SX_ADScrollModel(dic: dic))
+        //            }
+        //            self.adScrollView.adScrollModelArr = self.modelArr
+        //        }) { (task:URLSessionDataTask?, error:Error) in
+        //            print("error : \(error)")
+        //        }
     }
 }
