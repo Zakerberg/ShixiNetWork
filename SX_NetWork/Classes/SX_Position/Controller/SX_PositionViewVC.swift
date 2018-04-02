@@ -9,15 +9,21 @@
 import UIKit
 import AFNetworking
 
+let HotRecruitCell        = "HotRecruitCell"
+let HotIndustryCell       = "HotIndustryCell"
+let HotRecommrndationCell = "HotRecommrndationCell"
+let HotPositionCell       = "HotPositionCell"
+
 class SX_PositionViewVC: UIViewController {
     
     let adScrollView = SX_ADScrollerView(Y: 0, H: 200)
     var modelArr = [SX_ADScrollModel]()
+    var dataArrM = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        fetchADData()
+        //    fetchADData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,23 +41,78 @@ extension SX_PositionViewVC {
     }
 }
 
-//MARK: - UITableViewDelagate
-extension SX_PositionViewVC : UITableViewDelegate {
+//MARK: - UITableViewDelagate && UITbaleViewDataSource
+extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.dataArrM.count
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let arr = self.dataArrM[section]
+        if section == 3 {
+            return (arr as AnyObject).count
+        }
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.section {
+        case 0:
+           
+            
+            
+            break
+        case 1:
+            
+            
+            
+            
+            break
+        case 2:
+            
+            
+            
+            break
+        case 3:
+            
+            
+            
+            break
+        default:
+            
+            break
+        }
+        
+      return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            return 270
+        } else if indexPath.section == 1 {
+            return 180
+        } else if indexPath.section == 2 {
+            return 90
+        } else {
+            return 110
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            return 230
+        } else if section == 3 {
+            return 30
+        } else { 
+          return 45
+        }
+    }
 }
-
-//MARK: - UITbaleViewDataSource
-//extension SX_PositionViewVC : UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 3
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//
-//    }
-//}
 
 //MARK: - FetchData
 extension SX_PositionViewVC {
@@ -66,19 +127,20 @@ extension SX_PositionViewVC {
         }) { (error : Error) in
             print(" 失败 : \(error)")
         }
-        
-        //        let manager = AFHTTPSessionManager()
-        //        manager.responseSerializer.acceptableContentTypes = NSSet(objects: "text/plain", "text/javascript", "text/json", "text/html","application/javascript") as? Set<String>
-        //        manager.post(URL_Position_ScrollAD, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, json:Any) in
-        //            //  print("jsonData: \(json)")
-        //            guard let dataDic = json as? [String : NSObject] else { return }
-        //            guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
-        //            for dic in dataArr {
-        //                self.modelArr.append(SX_ADScrollModel(dic: dic))
-        //            }
-        //            self.adScrollView.adScrollModelArr = self.modelArr
-        //        }) { (task:URLSessionDataTask?, error:Error) in
-        //            print("error : \(error)")
-        //        }
     }
+}
+
+//MARK: - 版本检测
+extension SX_PositionViewVC {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
