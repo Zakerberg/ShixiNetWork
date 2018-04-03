@@ -26,6 +26,42 @@ class SX_PositionViewVC: UIViewController {
         //    fetchADData()
     }
     
+    func judgeAppVersion() {
+        var localVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! NSString
+    
+        do {
+            
+            let error = NSError()
+            let response = try NSURLConnection.sendSynchronousRequest(URLRequest(url: URL(fileURLWithPath: "https://itunes.apple.com/cn/lookup?id=1044254573")), returning: nil)
+            if response == nil {
+                print("没连接网络")
+                return
+            }
+            
+            let appInfoDic = try JSONSerialization.jsonObject(with: response, options: .mutableLeaves) as! NSDictionary
+            
+            print("\(appInfoDic)")
+            
+            let array = appInfoDic["results"] as! NSArray
+            
+            if array.count < 1 {
+                print("此App未提交")
+                return
+            }
+            
+            let dic = array[0] as! NSDictionary
+            let appStoreVersion = dic["version"]
+            print("当前版本号\(localVersion),商店版本号\(appStoreVersion)")
+            
+            
+            
+            
+           
+            
+         
+        } catch { }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,7 +97,7 @@ extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-           
+            
             
             
             break
@@ -86,7 +122,7 @@ extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
             break
         }
         
-      return UITableViewCell()
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -108,8 +144,8 @@ extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
             return 230
         } else if section == 3 {
             return 30
-        } else { 
-          return 45
+        } else {
+            return 45
         }
     }
 }
@@ -130,17 +166,3 @@ extension SX_PositionViewVC {
     }
 }
 
-//MARK: - 版本检测
-extension SX_PositionViewVC {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
