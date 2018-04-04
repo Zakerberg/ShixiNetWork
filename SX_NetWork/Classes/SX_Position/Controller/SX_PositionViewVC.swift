@@ -53,11 +53,7 @@ class SX_PositionViewVC: UIViewController {
             let appStoreVersion = dic["version"]
             print("当前版本号\(localVersion),商店版本号\(appStoreVersion)")
             
-            
-            
-            
-           
-            
+         
          
         } catch { }
     }
