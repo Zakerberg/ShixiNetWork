@@ -20,11 +20,6 @@ class SX_ResumeViewVC: UIViewController {
             print("按钮的点击")
         }
         
-        
-        
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

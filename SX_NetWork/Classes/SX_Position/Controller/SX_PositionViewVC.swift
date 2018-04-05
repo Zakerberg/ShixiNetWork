@@ -40,7 +40,7 @@ class SX_PositionViewVC: UIViewController {
             
             let appInfoDic = try JSONSerialization.jsonObject(with: response, options: .mutableLeaves) as! NSDictionary
             
-            print("\(appInfoDic)")
+            print(appInfoDic)
             
             let array = appInfoDic["results"] as! NSArray
             
@@ -52,8 +52,6 @@ class SX_PositionViewVC: UIViewController {
             let dic = array[0] as! NSDictionary
             let appStoreVersion = dic["version"]
             print("当前版本号\(localVersion),商店版本号\(appStoreVersion)")
-            
-         
          
         } catch { }
     }
