@@ -23,7 +23,9 @@ class SX_PositionViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        //    fetchADData()
+        // fetchADData()
+        // judgeAppVersion()
+        
     }
     
     func judgeAppVersion() {
@@ -144,7 +146,7 @@ extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - FetchData
+//MARK: - 首页轮播图
 extension SX_PositionViewVC {
     func fetchADData() {
         SX_NetWorkTools.shared.request(method: .POST, urlString: URL_Position_ScrollAD, parameters: nil, success: { (responseObj : Any) in
