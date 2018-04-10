@@ -16,6 +16,8 @@ pod 'Kingfisher'
 pod 'MJExtension'
 pod 'SDWebImage'
 pod 'ObjectMapper'
+pod 'Moya'
+#pod 'SQLiteSwift'
 
   target 'SX_NetWorkTests' do
     inherit! :search_paths

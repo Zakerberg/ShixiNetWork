@@ -7,7 +7,6 @@
 //  职位
 
 import UIKit
-import AFNetworking
 
 let HotRecruitCell        = "HotRecruitCell"
 let HotIndustryCell       = "HotIndustryCell"
@@ -33,7 +32,7 @@ class SX_PositionViewVC: UIViewController {
     
         do {
             
-            let error = NSError()
+            _ = NSError()
             let response = try NSURLConnection.sendSynchronousRequest(URLRequest(url: URL(fileURLWithPath: "https://itunes.apple.com/cn/lookup?id=1044254573")), returning: nil)
             if response == nil {
                 print("没连接网络")
@@ -73,7 +72,38 @@ extension SX_PositionViewVC {
     }
 }
 
-//MARK: - UITableViewDelagate && UITbaleViewDataSource
+//MARK: - 首页轮播图
+extension SX_PositionViewVC {
+    func fetchADData() {
+        
+        SX_NetWorkTools.shared.request(method: .POST, urlString: URL_Position_ScrollAD, parameters: nil, success: { (responseObj : Any) in
+            guard let dataDic = responseObj as? [String : NSObject] else { return }
+            guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
+            for dic in dataArr{
+                self.modelArr.append(SX_ADScrollModel(dic : dic))
+            }
+            self.adScrollView.adScrollModelArr = self.modelArr
+        }) { (error : Error) in
+            print(" 失败 : \(error)")
+        }
+    }
+}
+
+//MARK: - UIScrollerViewDelagate
+extension SX_PositionViewVC {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+       
+        print(scrollView.contentOffset.y)
+        let offSetY = scrollView.contentOffset.y
+        
+        
+        
+        
+        
+    }
+}
+
+//MARK: - UITableViewDelagate
 extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -146,19 +176,5 @@ extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - 首页轮播图
-extension SX_PositionViewVC {
-    func fetchADData() {
-        SX_NetWorkTools.shared.request(method: .POST, urlString: URL_Position_ScrollAD, parameters: nil, success: { (responseObj : Any) in
-            guard let dataDic = responseObj as? [String : NSObject] else { return }
-            guard let dataArr = dataDic["data"] as? [[String : NSObject]] else { return }
-            for dic in dataArr{
-                self.modelArr.append(SX_ADScrollModel(dic : dic))
-            }
-            self.adScrollView.adScrollModelArr = self.modelArr
-        }) { (error : Error) in
-            print(" 失败 : \(error)")
-        }
-    }
-}
+
 

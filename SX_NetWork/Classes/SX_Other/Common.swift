@@ -73,12 +73,13 @@
  
  
  // MARK: - UIImage Extension
- 
- // 根据颜色生成一张纯色图片
  extension UIImage {
     
+    var height:CGFloat{return self.size.height}
+    var width:CGFloat{return self.size.width}
+    
+    /// 根据颜色生成一张纯色图片
     class func imageWithColor(color : UIColor ,size : CGSize) -> UIImage{
-        
         let rect = CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -86,6 +87,29 @@
         context!.fill(rect)
         let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         return image
+    }
+    
+    /// 压缩图片,并返回压缩后的图片
+    func iamgeCompress (targetWight:CGFloat) -> UIImage {
+        let targetHeight = (targetWight/width)*height
+        UIGraphicsBeginImageContext(CGSize(width: targetWight, height: targetHeight))
+        self.draw(in: CGRect(x: 0, y: 0, width: targetWight, height: targetHeight))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    /// 图片模糊处理
+    func blurImage(value:NSNumber) -> UIImage {
+        let context = CIContext(options: [kCIContextUseSoftwareRenderer:true])
+        let ciImage = CIImage(image:self)
+        //滤镜
+        let blurFilter = CIFilter(name: "CIGuassianBlur")
+        blurFilter?.setValue(ciImage, forKey: kCIInputImageKey)
+        blurFilter?.setValue(value, forKey: "inputRadius")
+        let imageRef = context.createCGImage((blurFilter?.outputImage)!, from: (ciImage?.extent)!)
+        let newImage = UIImage(cgImage: imageRef!)
+        return newImage
     }
  }
  
@@ -149,3 +173,10 @@
     }
  }
  
+ 
+ extension Int {
+    var FloatVaslue:CGFloat{return CGFloat(self)}
+    var DoubleValue:Double{return Double(self)}
+ }
+ 
+
