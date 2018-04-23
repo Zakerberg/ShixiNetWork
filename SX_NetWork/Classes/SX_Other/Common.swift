@@ -173,7 +173,6 @@
     }
  }
  
- 
  extension Int {
     var FloatVaslue:CGFloat{return CGFloat(self)}
     var DoubleValue:Double{return Double(self)}

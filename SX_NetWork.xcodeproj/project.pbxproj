@@ -30,6 +30,7 @@
 		45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E17206888B700F9F370 /* InterfaceConfig.swift */; };
 		45C59E1A206893D700F9F370 /* SX_FileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E19206893D700F9F370 /* SX_FileManger.swift */; };
 		45C59E1E2068E16100F9F370 /* SX_HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */; };
+		45E35439207C9434004FF1A2 /* SXCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E35438207C9434004FF1A2 /* SXCache.swift */; };
 		E332B38597D9F407BB687778 /* Pods_SX_NetWorkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92281C5D3B8DEAFF26DDC1F /* Pods_SX_NetWorkUITests.framework */; };
 		F7B0843D1875922DBAA1760A /* Pods_SX_NetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		45C59E17206888B700F9F370 /* InterfaceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceConfig.swift; sourceTree = "<group>"; };
 		45C59E19206893D700F9F370 /* SX_FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_FileManger.swift; sourceTree = "<group>"; };
 		45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_HTTPRequest.swift; sourceTree = "<group>"; };
+		45E35438207C9434004FF1A2 /* SXCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXCache.swift; sourceTree = "<group>"; };
 		91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SX_NetWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5B32B961BF5031F1421324 /* Pods-SX_NetWorkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CACD465A82910E297B8C0ECF /* Pods-SX_NetWorkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				32E71443200C914700897291 /* Common.swift */,
 				32E7144A200F3D1800897291 /* Defines.swift */,
 				45C59E17206888B700F9F370 /* InterfaceConfig.swift */,
+				45E35438207C9434004FF1A2 /* SXCache.swift */,
 			);
 			path = SX_Other;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				32E71440200C8ED800897291 /* SX_GuideViewController.swift in Sources */,
 				32AE833E2015C6D800B2BCEB /* SX_NetWorkTools.swift in Sources */,
 				32E71444200C914700897291 /* Common.swift in Sources */,
+				45E35439207C9434004FF1A2 /* SXCache.swift in Sources */,
 				45AAE51A206B927700D09D3D /* SX_RequestService.swift in Sources */,
 				32E71449200DC7FF00897291 /* SX_TabBarController.swift in Sources */,
 				45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */,
