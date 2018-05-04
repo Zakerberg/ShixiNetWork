@@ -9,7 +9,8 @@
 #ifndef SX_NetWork_Header_h
 #define SX_NetWork_Header_h
 
-#import <CommonCrypto/CommonCrypto.h>
+//#import <CommonCrypto/CommonCrypto.h>
+#import <CommonCrypto/CommonDigest.h>
 
 
 #endif /* SX_NetWork_Header_h */

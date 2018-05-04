@@ -31,6 +31,7 @@
 		45C59E1A206893D700F9F370 /* SX_FileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E19206893D700F9F370 /* SX_FileManger.swift */; };
 		45C59E1E2068E16100F9F370 /* SX_HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */; };
 		45E35439207C9434004FF1A2 /* SXCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E35438207C9434004FF1A2 /* SXCache.swift */; };
+		45E371B2209AE0EB00C4FA17 /* SX_gifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E371B1209AE0EB00C4FA17 /* SX_gifView.swift */; };
 		E332B38597D9F407BB687778 /* Pods_SX_NetWorkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92281C5D3B8DEAFF26DDC1F /* Pods_SX_NetWorkUITests.framework */; };
 		F7B0843D1875922DBAA1760A /* Pods_SX_NetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		45C59E19206893D700F9F370 /* SX_FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_FileManger.swift; sourceTree = "<group>"; };
 		45C59E1D2068E16100F9F370 /* SX_HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_HTTPRequest.swift; sourceTree = "<group>"; };
 		45E35438207C9434004FF1A2 /* SXCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXCache.swift; sourceTree = "<group>"; };
+		45E371B1209AE0EB00C4FA17 /* SX_gifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_gifView.swift; sourceTree = "<group>"; };
 		91C93C4734588DE5112008A2 /* Pods_SX_NetWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SX_NetWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5B32B961BF5031F1421324 /* Pods-SX_NetWorkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CACD465A82910E297B8C0ECF /* Pods-SX_NetWorkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SX_NetWorkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SX_NetWorkTests/Pods-SX_NetWorkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				32E7144A200F3D1800897291 /* Defines.swift */,
 				45C59E17206888B700F9F370 /* InterfaceConfig.swift */,
 				45E35438207C9434004FF1A2 /* SXCache.swift */,
+				45E371B0209AE0C600C4FA17 /* SX_Tool */,
 			);
 			path = SX_Other;
 			sourceTree = "<group>";
@@ -342,6 +345,14 @@
 			children = (
 			);
 			path = SX_Category;
+			sourceTree = "<group>";
+		};
+		45E371B0209AE0C600C4FA17 /* SX_Tool */ = {
+			isa = PBXGroup;
+			children = (
+				45E371B1209AE0EB00C4FA17 /* SX_gifView.swift */,
+			);
+			path = SX_Tool;
 			sourceTree = "<group>";
 		};
 		75230DC3E0258AD53A7E1B5D /* Pods */ = {
@@ -700,6 +711,7 @@
 				45C59E18206888B700F9F370 /* InterfaceConfig.swift in Sources */,
 				32E7144B200F3D1800897291 /* Defines.swift in Sources */,
 				32E713FE200C8DC600897291 /* AppDelegate.swift in Sources */,
+				45E371B2209AE0EB00C4FA17 /* SX_gifView.swift in Sources */,
 				32E7144F200F4C9700897291 /* SX_MineCenterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

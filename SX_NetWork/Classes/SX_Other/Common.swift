@@ -64,13 +64,11 @@
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
     }
     
-    
     class func hexInt(_ hexValue: Int) -> UIColor {
         
         return UIColor(red: ((CGFloat)((hexValue & 0xFF0000) >> 16)) / 255.0, green: ((CGFloat)((hexValue & 0xFF00) >> 8)) / 255.0, blue: ((CGFloat)(hexValue & 0xFF)) / 255.0, alpha: 1.0)
     }
  }
- 
  
  // MARK: - UIImage Extension
  extension UIImage {
@@ -116,7 +114,6 @@
  // MARK: - UI链式编程
  protocol ViewChainable { }
  extension ViewChainable where Self: UIView {
-    
     @discardableResult
     func config(_ config: (Self) -> Void) -> Self {
         config(self)
@@ -125,7 +122,6 @@
  }
  
  extension UIView: ViewChainable {
-    
     @discardableResult
     func  layout(snapKitMaker: (ConstraintMaker) -> Void) -> Self {
         self.snp.makeConstraints { (make) in
@@ -156,7 +152,7 @@
         
         let hash = NSMutableString()
         for i in 0...digestLen {
-            hash.appendFormat("%02x%02x%02x%02x%02x%02x", result[i])
+            hash.appendFormat("%02x", result[i])
         }
         result.deallocate(capacity: digestLen)
         return String(format: hash as String) as NSString

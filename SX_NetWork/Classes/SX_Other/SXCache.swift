@@ -25,8 +25,6 @@ class SXCache: NSObject {
         return 0
     }
     
-    
-    
     static func forderSizeAtPath(forderPath:String) -> Double {
         
         return 0
