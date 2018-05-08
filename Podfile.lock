@@ -1,23 +1,7 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
-    - AFNetworking/NSURLSession
   - Alamofire (4.7.0)
   - Bugly (2.4.8)
   - Kingfisher (4.6.4)
-  - MJExtension (3.0.13)
   - Moya (11.0.1):
     - Moya/Core (= 11.0.1)
   - Moya/Core (11.0.1):
@@ -34,12 +18,11 @@ PODS:
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
   - SnapKit (4.0.0)
+  - Spring (1.0.5)
 
 DEPENDENCIES:
-  - AFNetworking
   - Bugly
   - Kingfisher
-  - MJExtension
   - Moya
   - ObjectMapper
   - ReactiveSwift
@@ -47,13 +30,12 @@ DEPENDENCIES:
   - RxSwift
   - SDWebImage
   - SnapKit
+  - Spring
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   Bugly: da3c02408c14838d498429320545a8e439392978
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
-  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   Moya: 3d594ada51a21cc02b18739ab578a1984f900c8a
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
@@ -62,7 +44,8 @@ SPEC CHECKSUMS:
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
 
-PODFILE CHECKSUM: bee41c363cccca5be129881095dbe92f97691161
+PODFILE CHECKSUM: d780f3151971603237d6cd8a04518828dc6b0122
 
 COCOAPODS: 1.4.0

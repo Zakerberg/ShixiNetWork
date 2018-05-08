@@ -118,7 +118,3 @@ extension SX_ADScrollerView {
         adCollectionView.setContentOffset(CGPoint(x: offSetX, y: 0), animated: true)
     }
 }
-
-
-
-

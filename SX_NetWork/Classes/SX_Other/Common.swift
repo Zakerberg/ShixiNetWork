@@ -174,4 +174,23 @@
     var DoubleValue:Double{return Double(self)}
  }
  
-
+ 
+ /// Run Time ---> UIButton
+ extension UIButton {
+    struct once {
+        static var once:dispatch_time_t = 0
+        
+    }
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -9,15 +9,13 @@ use_frameworks!
 pod 'Bugly'
 pod 'ReactiveSwift'
 pod 'SnapKit'
-pod 'AFNetworking'
 pod 'RxCocoa'
 pod 'RxSwift'
 pod 'Kingfisher'
-pod 'MJExtension'
-pod 'SDWebImage'
 pod 'ObjectMapper'
 pod 'Moya'
-#pod 'SQLiteSwift'
+pod 'SDWebImage'
+pod 'Spring'
 
   target 'SX_NetWorkTests' do
     inherit! :search_paths
