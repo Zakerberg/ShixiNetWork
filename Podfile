@@ -16,6 +16,8 @@ pod 'ObjectMapper'
 pod 'Moya'
 pod 'SDWebImage'
 pod 'Spring'
+pod 'Alamofire'
+pod 'SwiftyJSON'
 
   target 'SX_NetWorkTests' do
     inherit! :search_paths

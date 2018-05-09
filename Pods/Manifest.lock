@@ -19,8 +19,10 @@ PODS:
   - SDWebImage/Core (4.3.3)
   - SnapKit (4.0.0)
   - Spring (1.0.5)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Bugly
   - Kingfisher
   - Moya
@@ -31,6 +33,7 @@ DEPENDENCIES:
   - SDWebImage
   - SnapKit
   - Spring
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
@@ -45,7 +48,8 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: d780f3151971603237d6cd8a04518828dc6b0122
+PODFILE CHECKSUM: 006fe2b010c8df4d4bdc1827e5f989756621e63c
 
 COCOAPODS: 1.4.0

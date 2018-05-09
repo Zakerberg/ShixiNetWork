@@ -9,26 +9,26 @@
 import UIKit
 import Moya
 
-enum API {
+// 初始化homeProvider
+let SXHomeProvider = MoyaProvider<HomeAPI>()
+
+enum HomeAPI {
     case URL_Position_EnNewsList
-    case URL_Position_NewsList(para1:String,para2:String)
+    case URL_Position_NewsList
+    case URL_Position_ScrollAD
+    
 }
 
-extension API:TargetType {
+extension HomeAPI:TargetType {
     
     // 定义每个接口的http请求
     var method: Moya.Method {
         switch self {
         case .URL_Position_EnNewsList:
-            return .get
-        default:
             return .post
+        default:
+            return .get
         }
-    }
-    
-    // 定义每个接口的test数据
-    public var sampleData: Data {
-        return Data()
     }
     
     // 定义每个接口的 task
@@ -38,12 +38,9 @@ extension API:TargetType {
             return .requestParameters(parameters: [:], encoding: JSONEncoding.default)
         case .URL_Position_EnNewsList:
             return .requestParameters(parameters: [:], encoding: URLEncoding.default)
+        case .URL_Position_ScrollAD:
+            return .requestParameters(parameters: [:], encoding: URLEncoding.default)
         }
-    }
-    
-    // 定义每个接口的请求头
-    var headers: [String : String]? {
-        return nil
     }
     
     var baseURL: URL {
@@ -57,6 +54,23 @@ extension API:TargetType {
             return "/apphome/index"
         case .URL_Position_EnNewsList:
             return "/apphome/indexen"
+        case .URL_Position_ScrollAD:
+            return "/appad"
         }
+    }
+    
+    //是否执行Alamofire验证
+    public var validate: Bool{
+        return false
+    }
+    
+    // 定义每个接口的test数据
+    public var sampleData: Data {
+        return "{}".data(using: String.Encoding.utf8)!
+    }
+    
+    // 定义每个接口的请求头
+    var headers: [String : String]? {
+        return nil
     }
 }

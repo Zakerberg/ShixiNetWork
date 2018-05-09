@@ -7,6 +7,9 @@
 //  职位
 
 import UIKit
+import ObjectMapper
+import RxSwift
+import SwiftyJSON
 
 let HotRecruitCell        = "HotRecruitCell"
 let HotIndustryCell       = "HotIndustryCell"
@@ -16,8 +19,14 @@ let HotPositionCell       = "HotPositionCell"
 class SX_PositionViewVC: UIViewController {
     
     let adScrollView = SX_ADScrollerView(Y: 0, H: 200)
-    var modelArr = [SX_ADScrollModel]()
     var dataArrM = NSMutableArray()
+    
+    //轮播图数据
+  //  var cicles:Array<SX_ADScrollModel> = []
+    
+    
+    let  disposeBag = DisposeBag()
+    var homeTableView:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +34,6 @@ class SX_PositionViewVC: UIViewController {
         fetchADData()
         judgeAppVersion()
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,20 +46,33 @@ extension SX_PositionViewVC {
     func setUI() {
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.isTranslucent = false
-        self.view.addSubview(adScrollView)
+        self.homeTableView = UITableView(frame: self.view.frame, style: .grouped)
+        self.homeTableView.delegate = self
+        self.homeTableView.dataSource = self
+        self.homeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
+        self.view.addSubview(self.homeTableView)
+        self.homeTableView.addSubview(adScrollView)
     }
 }
 
 //MARK: - 首页轮播图
 extension SX_PositionViewVC {
     func fetchADData() {
-       
-    
         
-        
-        
-        
-        
+        SXHomeProvider.request(.URL_Position_ScrollAD) { (result) in
+            if case let .success(response) = result {
+                // 解析数据
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                let dataArr = json["data"].arrayValue
+                
+                
+
+                DispatchQueue.main.async {
+                    self.homeTableView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -68,82 +88,52 @@ extension SX_PositionViewVC {
 extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.dataArrM.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let arr = self.dataArrM[section]
-        if section == 3 {
-            return (arr as AnyObject).count
-        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
-        case 0:
-            
-            
-            
-            break
-        case 1:
-            
-            
-            
-            
-            break
-        case 2:
-            
-            
-            
-            break
-        case 3:
-            
-            
-            
-            break
-        default:
-            
-            break
-        }
         
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.section == 0 {
-            return 270
-        } else if indexPath.section == 1 {
-            return 180
-        } else if indexPath.section == 2 {
-            return 90
-        } else {
-            return 110
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        if indexPath.section == 0 {
+//            return 270
+//        } else if indexPath.section == 1 {
+//            return 180
+//        } else if indexPath.section == 2 {
+//            return 90
+//        } else {
+//            return 110
+//        }
+//    }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if section == 0 {
-            return 230
-        } else if section == 3 {
-            return 30
-        } else {
-            return 45
-        }
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//
+//        if section == 0 {
+//            return 230
+//        } else if section == 3 {
+//            return 30
+//        } else {
+//            return 45
+//        }
+//    }
 }
 
 
-
+//MARK: - judgeAppVersion
 func judgeAppVersion() {
     let localVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! NSString
     do {
         _ = NSError()
-        let response = try NSURLConnection.sendSynchronousRequest(URLRequest(url: URL(fileURLWithPath: "https://itunes.apple.com/cn/lookup?id=1044254573")), returning: nil)
+        var response = try NSURLConnection.sendSynchronousRequest(URLRequest(url: URL(fileURLWithPath: "https://itunes.apple.com/cn/lookup?id=1044254573")), returning: nil)
         if response == nil {
             print("没连接网络")
             return
