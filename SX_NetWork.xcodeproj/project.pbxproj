@@ -28,6 +28,8 @@
 		450A63F320A18F640043CA67 /* SX_MoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F220A18F640043CA67 /* SX_MoyaConfig.swift */; };
 		450A63F520A19DE90043CA67 /* SX_HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F420A19DE90043CA67 /* SX_HomeAPI.swift */; };
 		450A63FA20A19F810043CA67 /* SX_Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F920A19F810043CA67 /* SX_Result.swift */; };
+		450A63FE20A41AFE0043CA67 /* SX_ResumeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63FD20A41AFE0043CA67 /* SX_ResumeAPI.swift */; };
+		450A640020A41B3C0043CA67 /* SX_MineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63FF20A41B3C0043CA67 /* SX_MineAPI.swift */; };
 		456724162064A71B00000589 /* SX_ADScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456724152064A71B00000589 /* SX_ADScrollModel.swift */; };
 		45E35439207C9434004FF1A2 /* SXCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E35438207C9434004FF1A2 /* SXCache.swift */; };
 		45E371B2209AE0EB00C4FA17 /* SX_gifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E371B1209AE0EB00C4FA17 /* SX_gifView.swift */; };
@@ -81,6 +83,8 @@
 		450A63F220A18F640043CA67 /* SX_MoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_MoyaConfig.swift; sourceTree = "<group>"; };
 		450A63F420A19DE90043CA67 /* SX_HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_HomeAPI.swift; sourceTree = "<group>"; };
 		450A63F920A19F810043CA67 /* SX_Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_Result.swift; sourceTree = "<group>"; };
+		450A63FD20A41AFE0043CA67 /* SX_ResumeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ResumeAPI.swift; sourceTree = "<group>"; };
+		450A63FF20A41B3C0043CA67 /* SX_MineAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_MineAPI.swift; sourceTree = "<group>"; };
 		450ACACD206A8A9C00621767 /* SX_NetWork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SX_NetWork_Header.h; sourceTree = "<group>"; };
 		456724152064A71B00000589 /* SX_ADScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ADScrollModel.swift; sourceTree = "<group>"; };
 		45E35438207C9434004FF1A2 /* SXCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXCache.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			children = (
 				450A63F620A19E580043CA67 /* Base */,
 				450A63F420A19DE90043CA67 /* SX_HomeAPI.swift */,
+				450A63FD20A41AFE0043CA67 /* SX_ResumeAPI.swift */,
+				450A63FF20A41B3C0043CA67 /* SX_MineAPI.swift */,
 				450A63F020A18F550043CA67 /* SX_NetWorkManager.swift */,
 				450A63F220A18F640043CA67 /* SX_MoyaConfig.swift */,
 			);
@@ -642,6 +648,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SX_NetWork/Pods-SX_NetWork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
@@ -657,6 +664,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
@@ -704,9 +712,11 @@
 				450A63FA20A19F810043CA67 /* SX_Result.swift in Sources */,
 				450A63F120A18F550043CA67 /* SX_NetWorkManager.swift in Sources */,
 				3223067E20623660007A1150 /* SX_ADCollectionViewCell.swift in Sources */,
+				450A63FE20A41AFE0043CA67 /* SX_ResumeAPI.swift in Sources */,
 				3223067C206228BD007A1150 /* SX_ADScrollerView.swift in Sources */,
 				450A63F520A19DE90043CA67 /* SX_HomeAPI.swift in Sources */,
 				32E71406200C8DC600897291 /* SX_NetWork.xcdatamodeld in Sources */,
+				450A640020A41B3C0043CA67 /* SX_MineAPI.swift in Sources */,
 				32E71442200C8F3900897291 /* SX_NavigationController.swift in Sources */,
 				32E71440200C8ED800897291 /* SX_GuideViewController.swift in Sources */,
 				32E71444200C914700897291 /* Common.swift in Sources */,

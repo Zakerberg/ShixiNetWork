@@ -174,17 +174,15 @@
     var DoubleValue:Double{return Double(self)}
  }
  
- 
- /// Run Time ---> UIButton
- extension UIButton {
-    struct once {
-        static var once:dispatch_time_t = 0
-        
-    }
+
+ //打印信息
+ func SXLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+    #if DEBUG
+    let fileName = (file as NSString).lastPathComponent
+    print("\n>>> \(Date())  \(fileName) (line: \(lineNum)): \(message)\n")
+    #endif
  }
- 
- 
- 
+
  
  
  

@@ -10,6 +10,7 @@ import UIKit
 import ObjectMapper
 import RxSwift
 import SwiftyJSON
+import MJExtension
 
 let HotRecruitCell        = "HotRecruitCell"
 let HotIndustryCell       = "HotIndustryCell"
@@ -20,11 +21,7 @@ class SX_PositionViewVC: UIViewController {
     
     let adScrollView = SX_ADScrollerView(Y: 0, H: 200)
     var dataArrM = NSMutableArray()
-    
-    //轮播图数据
-  //  var cicles:Array<SX_ADScrollModel> = []
-    
-    
+    var adModel:SX_ADScrollModel!
     let  disposeBag = DisposeBag()
     var homeTableView:UITableView!
     
@@ -59,7 +56,16 @@ extension SX_PositionViewVC {
 extension SX_PositionViewVC {
     func fetchADData() {
         
-      
+        SX_HomeAPI.request(target: .URL_Position_ScrollAD, success: { (result) in
+            SXLog(result)
+            guard let adModel = SX_ADScrollModel(JSON: (result as! [String : AnyObject])) else { return }
+            self.adModel = adModel
+            DispatchQueue.main.async {
+                self.homeTableView.reloadData()
+            }
+        }) { (error) in
+            SXLog(error.localizedDescription)
+        }
     }
 }
 
@@ -89,29 +95,29 @@ extension SX_PositionViewVC : UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        if indexPath.section == 0 {
-//            return 270
-//        } else if indexPath.section == 1 {
-//            return 180
-//        } else if indexPath.section == 2 {
-//            return 90
-//        } else {
-//            return 110
-//        }
-//    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //
+    //        if indexPath.section == 0 {
+    //            return 270
+    //        } else if indexPath.section == 1 {
+    //            return 180
+    //        } else if indexPath.section == 2 {
+    //            return 90
+    //        } else {
+    //            return 110
+    //        }
+    //    }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//
-//        if section == 0 {
-//            return 230
-//        } else if section == 3 {
-//            return 30
-//        } else {
-//            return 45
-//        }
-//    }
+    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //
+    //        if section == 0 {
+    //            return 230
+    //        } else if section == 3 {
+    //            return 30
+    //        } else {
+    //            return 45
+    //        }
+    //    }
 }
 
 

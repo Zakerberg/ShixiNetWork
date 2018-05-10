@@ -18,6 +18,7 @@ pod 'SDWebImage'
 pod 'Spring'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'MJExtension'
 
   target 'SX_NetWorkTests' do
     inherit! :search_paths
