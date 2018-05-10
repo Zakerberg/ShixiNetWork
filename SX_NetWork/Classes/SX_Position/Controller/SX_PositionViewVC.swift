@@ -59,20 +59,7 @@ extension SX_PositionViewVC {
 extension SX_PositionViewVC {
     func fetchADData() {
         
-        SXHomeProvider.request(.URL_Position_ScrollAD) { (result) in
-            if case let .success(response) = result {
-                // 解析数据
-                let data = try? response.mapJSON()
-                let json = JSON(data!)
-                let dataArr = json["data"].arrayValue
-                
-                
-
-                DispatchQueue.main.async {
-                    self.homeTableView.reloadData()
-                }
-            }
-        }
+      
     }
 }
 

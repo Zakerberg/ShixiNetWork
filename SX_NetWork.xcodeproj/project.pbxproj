@@ -27,7 +27,6 @@
 		450A63F120A18F550043CA67 /* SX_NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F020A18F550043CA67 /* SX_NetWorkManager.swift */; };
 		450A63F320A18F640043CA67 /* SX_MoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F220A18F640043CA67 /* SX_MoyaConfig.swift */; };
 		450A63F520A19DE90043CA67 /* SX_HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F420A19DE90043CA67 /* SX_HomeAPI.swift */; };
-		450A63F820A19E710043CA67 /* SX_BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F720A19E710043CA67 /* SX_BaseResponse.swift */; };
 		450A63FA20A19F810043CA67 /* SX_Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A63F920A19F810043CA67 /* SX_Result.swift */; };
 		456724162064A71B00000589 /* SX_ADScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456724152064A71B00000589 /* SX_ADScrollModel.swift */; };
 		45E35439207C9434004FF1A2 /* SXCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E35438207C9434004FF1A2 /* SXCache.swift */; };
@@ -81,7 +80,6 @@
 		450A63F020A18F550043CA67 /* SX_NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_NetWorkManager.swift; sourceTree = "<group>"; };
 		450A63F220A18F640043CA67 /* SX_MoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_MoyaConfig.swift; sourceTree = "<group>"; };
 		450A63F420A19DE90043CA67 /* SX_HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_HomeAPI.swift; sourceTree = "<group>"; };
-		450A63F720A19E710043CA67 /* SX_BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_BaseResponse.swift; sourceTree = "<group>"; };
 		450A63F920A19F810043CA67 /* SX_Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_Result.swift; sourceTree = "<group>"; };
 		450ACACD206A8A9C00621767 /* SX_NetWork_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SX_NetWork_Header.h; sourceTree = "<group>"; };
 		456724152064A71B00000589 /* SX_ADScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SX_ADScrollModel.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 		450A63F620A19E580043CA67 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				450A63F720A19E710043CA67 /* SX_BaseResponse.swift */,
 				450A63F920A19F810043CA67 /* SX_Result.swift */,
 			);
 			path = Base;
@@ -718,7 +715,6 @@
 				32E71449200DC7FF00897291 /* SX_TabBarController.swift in Sources */,
 				32E7144B200F3D1800897291 /* Defines.swift in Sources */,
 				32E713FE200C8DC600897291 /* AppDelegate.swift in Sources */,
-				450A63F820A19E710043CA67 /* SX_BaseResponse.swift in Sources */,
 				45E371B2209AE0EB00C4FA17 /* SX_gifView.swift in Sources */,
 				32E7144F200F4C9700897291 /* SX_MineCenterVC.swift in Sources */,
 			);

@@ -9,17 +9,41 @@
 import UIKit
 import Moya
 
-// 初始化homeProvider
-let SXHomeProvider = MoyaProvider<HomeAPI>()
+struct  SX_HomeAPI {
+    
+    typealias successCallback = (_ result: Any)      -> Void
+    typealias failureCallback = (_ error: MoyaError) -> Void
+    
+    static let SXHomeProvider = MoyaProvider<HomeAPI>()
+    static func request(
+        target: HomeAPI,
+        success: @escaping successCallback,
+        failure: @escaping failureCallback
+        ){
+        
+        SXHomeProvider.request(target){ result in
+            switch result {
+            case let .success(moyaResponse):
+                do {
+                    try success(moyaResponse.mapJSON()) // 测试用JSON数据
+                } catch {
+                    failure(MoyaError.jsonMapping(moyaResponse))
+                }
+            case let .failure(error):
+                failure(error)
+                
+            }
+        }
+    }
+}
 
 enum HomeAPI {
     case URL_Position_EnNewsList
     case URL_Position_NewsList
     case URL_Position_ScrollAD
-    
 }
 
-extension HomeAPI:TargetType {
+extension HomeAPI : TargetType {
     
     // 定义每个接口的http请求
     var method: Moya.Method {
@@ -66,11 +90,18 @@ extension HomeAPI:TargetType {
     
     // 定义每个接口的test数据
     public var sampleData: Data {
-        return "{}".data(using: String.Encoding.utf8)!
+        return "{}".utf8Encoded
     }
     
     // 定义每个接口的请求头
     var headers: [String : String]? {
-        return nil
+        return ["Content-type" : "application/json"]
     }
 }
+
+private extension String {
+    var utf8Encoded: Data{
+        return data(using: .utf8)!
+    }
+}
+

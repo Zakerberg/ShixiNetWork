@@ -10,20 +10,19 @@ import UIKit
 import ObjectMapper
 import SwiftyJSON
 
-public protocol Mappable{
-    init?(jsonData:JSON)
-}
-
-struct SX_ADScrollModel:  Mappable {
+class SX_ADScrollModel:  Mappable {
  
-    let detail_url : String?
-    let img_url : String?
-    let ad_title : String?
+    var detail_url: String = ""
+    var img_url: String = ""
+    var ad_title: String = ""
     
-    init?(jsonData: JSON) {
+    required init?(map: Map) {
         
-        self.detail_url = jsonData["detail_url"].string
-        self.ad_title   = jsonData["ad_title"].string
-        self.img_url    = jsonData["img_url"].string
+    }
+    
+    func mapping(map: Map) {
+        detail_url    <-  map["detail_url"]
+        img_url       <-  map["img_url"]
+        ad_title      <-  map["ad_title"]
     }
 }
