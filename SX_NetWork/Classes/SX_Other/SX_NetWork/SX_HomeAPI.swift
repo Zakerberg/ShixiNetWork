@@ -31,7 +31,6 @@ struct  SX_HomeAPI {
                 }
             case let .failure(error):
                 failure(error)
-                
             }
         }
     }

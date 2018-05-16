@@ -28,7 +28,6 @@ class SX_GuideViewController: UIViewController,UIScrollViewDelegate {
         let h  = self.view.bounds.size.height
         
         for index in 0...3 {
-            
             let imageView = UIImageView()
             imageView.isUserInteractionEnabled = true
             let x = index * Int(w)
@@ -44,10 +43,6 @@ class SX_GuideViewController: UIViewController,UIScrollViewDelegate {
                     button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
                     button.setTitle("立即体验", for: .normal)
                     button.setTitleColor(UIColor.SX_MainColor(), for: .normal)
-                    button.layer.masksToBounds = true
-                    button.layer.cornerRadius = 4
-                    button.layer.borderColor = UIColor.SX_MainColor().cgColor
-                    button.layer.borderWidth = 0.5
                     imageView.addSubview(button)
                     button.snp.makeConstraints({ (SX) in
                         SX.bottom.equalTo(imageView.snp.bottom).offset(-50)

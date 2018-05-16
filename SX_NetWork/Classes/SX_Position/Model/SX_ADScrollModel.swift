@@ -17,9 +17,9 @@ class SX_ADScrollModel:  Mappable {
     var ad_title: String = ""
     
     required init?(map: Map) {
-        
+
     }
-    
+
     func mapping(map: Map) {
         detail_url    <-  map["detail_url"]
         img_url       <-  map["img_url"]

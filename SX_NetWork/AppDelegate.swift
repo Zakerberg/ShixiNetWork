@@ -18,16 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame:SCREEN_BOUNDS)
-        self.window?.rootViewController = SX_TabBarController()
+        self.window?.backgroundColor = UIColor.white
+        
+        if !UserDefaults.standard.bool(forKey: "firstLaunch") {
+            UserDefaults.standard.bool(forKey: "firstLaunch")
+            SXLog("首次启动")
+            let gVC = SX_GuideViewController()
+            self.window?.rootViewController = gVC
+        }else{
+            self.window?.rootViewController = SX_TabBarController()
+        }
         self.window?.makeKeyAndVisible()
         Bugly.start(withAppId: BuglyAppID)
-        return true
-    }
-    
-    func isFirstOpen() -> Bool {
-        
-        let ud = UserDefaults.standard
-        //let key = NSStringFromSelector()
         
         return true
     }
