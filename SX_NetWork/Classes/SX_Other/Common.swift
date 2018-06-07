@@ -9,7 +9,7 @@
  import UIKit
  import SnapKit
  
- // MARK: - UIColor Extension
+ // MARK: - UIColor
  extension UIColor {
     
     /// rgb颜色
@@ -174,7 +174,7 @@
     var DoubleValue:Double{return Double(self)}
  }
  
-
+ 
  //打印信息
  func SXLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     #if DEBUG
@@ -182,7 +182,42 @@
     print("\n>>> \(Date())  \(fileName) (line: \(lineNum)): \(message)\n")
     #endif
  }
-
+ 
+ 
+ //MARK: - Algorithm
+ 
+ /// 快速排序
+ func quickSort<T: Comparable>(_ a: [T]) -> [T] {
+    guard a.count > 1 else { return a }
+    let pivot = a[a.count/2]
+    let less = a.filter { $0 < pivot }
+    let equal = a.filter { $0 == pivot }
+    let greater = a.filter { $0 > pivot }
+    
+    return quickSort(less) + equal + quickSort(greater)
+ }
+ 
+ /// 二分查找
+ func binarySearch(array: [Int], target: Int) -> Int {
+    
+    var left = 0
+    var right = array.count - 1
+    
+    while left <= right {
+        let mid = left + (right - left) / 2
+        let value = array[mid]
+        
+        if value < target {
+            left = mid + 1
+        }else if value > target {
+            right = mid - 1
+        }else {
+            return mid
+        }
+    }
+    return -1
+ }
+ 
  
  
  
