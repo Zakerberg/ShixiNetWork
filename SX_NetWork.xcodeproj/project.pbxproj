@@ -889,6 +889,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N4ZC7WBUL7;
 				INFOPLIST_FILE = SX_NetWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shixi.SX-NetWork";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -908,6 +909,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N4ZC7WBUL7;
 				INFOPLIST_FILE = SX_NetWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shixi.SX-NetWork";
 				PRODUCT_NAME = "$(TARGET_NAME)";

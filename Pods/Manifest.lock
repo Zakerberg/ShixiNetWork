@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.7.0)
-  - Bugly (2.4.8)
   - Kingfisher (4.6.4)
   - MJExtension (3.0.13)
   - Moya (11.0.1):
@@ -24,7 +23,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Bugly
   - Kingfisher
   - MJExtension
   - Moya
@@ -39,7 +37,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
-  Bugly: da3c02408c14838d498429320545a8e439392978
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   Moya: 3d594ada51a21cc02b18739ab578a1984f900c8a
@@ -53,6 +50,6 @@ SPEC CHECKSUMS:
   Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 0b4cca6a0b5d31c6ed475f9b6acf509057e5a6c6
+PODFILE CHECKSUM: 1763881d4a30af1c3f2aa4eec1806fe15c28aabe
 
 COCOAPODS: 1.4.0

@@ -6,7 +6,7 @@ target 'SX_NetWork' do
 
 use_frameworks!
 
-pod 'Bugly'
+#pod 'Bugly'
 pod 'ReactiveSwift'
 pod 'SnapKit'
 pod 'RxCocoa'

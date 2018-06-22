@@ -59,9 +59,13 @@ extension SX_PositionViewVC {
         
         SX_HomeAPI.request(target: .URL_Position_ScrollAD, success: { (result) in
             SXLog(result)
-            guard let adModel = SX_ADScrollModel(JSON: (result as! [String : AnyObject])) else { return }
             
-            self.adModel = adModel
+            
+            
+            
+            
+            //guard let adModel = SX_ADScrollModel(JSON: (result as! [String : AnyObject])) else { return }
+//            self.adModel = adModel
             
             DispatchQueue.main.async {
                 self.homeTableView.reloadData()

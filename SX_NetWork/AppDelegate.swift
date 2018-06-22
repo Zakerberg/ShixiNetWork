@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import Bugly
+//import Bugly
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = SX_TabBarController()
         }
         self.window?.makeKeyAndVisible()
-        Bugly.start(withAppId: BuglyAppID)
+    //    Bugly.start(withAppId: BuglyAppID)
         
         return true
     }
